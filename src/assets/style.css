@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap');
 
 :root {
   font-size: 10px; /* 62.5% */
@@ -9,12 +9,12 @@
   --bgColor: gray;
   --bgContent: white;
 
-  --comicFont: "Bangers", cursive;
-  --sciFiFont: "Faster One", cursive;
-  --horrorFont: "Nosifer", cursive;
-  --sweetFont: "Oleo Script", cursive;
-  --westernFont: "Rye", cursive;
-  --standartFont: "Staatliches", cursive;
+  --comicFont: 'Bangers', cursive;
+  --sciFiFont: 'Faster One', cursive;
+  --horrorFont: 'Nosifer', cursive;
+  --sweetFont: 'Oleo Script', cursive;
+  --westernFont: 'Rye', cursive;
+  --standartFont: 'Staatliches', cursive;
 }
 
 body {
@@ -165,5 +165,19 @@ body {
 @media only screen and (max-width: 900px) {
   .footerDiv {
     width: 100%;
+  }
+}
+
+.animation {
+  animation: fadeIn 5s linear 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
