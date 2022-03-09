@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
+
+:root {
+  font-size: 10px; /* 62.5% */
+
+  --textColor: rgb(31, 31, 31);
+  --textColorHover: rgba(31, 31, 31, 0.5);
+
+  --bgColor: gray;
+  --bgContent: white;
+
+  --comicFont: "Bangers", cursive;
+  --sciFiFont: "Faster One", cursive;
+  --horrorFont: "Nosifer", cursive;
+  --sweetFont: "Oleo Script", cursive;
+  --westernFont: "Rye", cursive;
+  --standartFont: "Staatliches", cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-size: 2.5rem;
+
+  color: var(--textColor);
+
+  font-family: var(--standartFont);
+}
+
+/**********************************/
+/*    ***       HEADER    ***     */
+/**********************************/
+
+.headerDiv {
+  background: var(--bgColor);
+  background-size: cover;
+  text-align: center;
+}
+
+.headerDiv > h1 {
+  margin: 0;
+}
+
+.headlineNavLink {
+  text-decoration-color: transparent;
+  color: var(--textColor);
+
+  font-size: 15rem;
+
+  margin: 0;
+  padding: 1rem;
+}
+
+.headerNavbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navLink {
+  display: inline-block;
+
+  text-decoration-color: transparent;
+  color: var(--textColor);
+
+  text-align: center;
+
+  border: 1px solid var(--textColor);
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-bottom: none;
+
+  margin: 0 1rem;
+  width: 17rem;
+  padding: 1rem 2rem;
+
+  transition: 250ms;
+}
+
+.navLink:hover {
+  background-color: rgb(156, 156, 156);
+  box-shadow: inset 0 0 5px var(--textColorHover);
+}
+
+.headerNavbar > .active {
+  background-color: var(--bgContent);
+}
+
+.active:hover {
+  box-shadow: none;
+  cursor: default;
+}
+
+/**********************************/
+/*    ***       FOOTER    ***     */
+/**********************************/
+
+.footerComp {
+  width: 100%;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--bgColor);
+}
+
+.footerDiv {
+  width: 40%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerDiv > a {
+  margin: auto 0;
+
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+.footerDiv > a:hover {
+  text-shadow: 0 0 5px var(--textColorHover);
+}
+
+.socialMediaDiv {
+  display: flex;
+  justify-content: space-between;
+
+  width: 15%;
+  padding: 0.5rem;
+}
+
+.socialMediaDiv > a {
+  text-decoration: none;
+  color: var(--textColorh);
+}
+
+.socialMediaDiv > a:hover {
+  text-shadow: 0 0 5px var(--textColorHover);
+}
