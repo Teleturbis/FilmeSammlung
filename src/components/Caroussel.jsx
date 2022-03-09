@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
 function Caroussel({ randomFilms }) {
-  if (randomFilms) {
-    console.log(randomFilms[0]);
-  }
   // console.log(randomFilms[0].fields.title);
   // console.log(randomFilms[0].fields.previewImage.fields.file.url);
 
   const [indexNumber, setIndexNumber] = useState(0);
+  console.log(indexNumber);
+  console.log(randomFilms);
 
   const nextPicture = () => {
     if (indexNumber == 2) {
@@ -32,7 +31,7 @@ function Caroussel({ randomFilms }) {
         <img
           src={randomFilms[indexNumber].fields.previewImage.fields.file.url}
           alt=""
-          className="animation"
+          className="animation carousselPicture"
         />
       )}
       <button onClick={() => nextPicture()}>Right</button>

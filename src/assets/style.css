@@ -168,8 +168,12 @@ body {
   }
 }
 
+.carousselPicture {
+  opacity: 0;
+}
+
 .animation {
-  animation: fadeIn 5s linear 2s forwards;
+  animation: fadeIn 2s ease-out forwards;
 }
 
 @keyframes fadeIn {

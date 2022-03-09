@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   async function fetchData() {
-    let fetching = await client.getEntries();
+    let fetching = await client.getEntries({ content_type: 'film' });
     setFilms(fetching.items);
   }
 
@@ -51,6 +51,8 @@ function App() {
       }
 
       setRandomFilms(tempArr);
+      console.log(randomNumber, 'randomNumber');
+      console.log(films.length, 'filmlength');
     }
   }, [films]);
 
