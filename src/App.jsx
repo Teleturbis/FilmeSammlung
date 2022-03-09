@@ -5,6 +5,7 @@ import Header from './components/general/Header.jsx';
 import Footer from './components/general/Footer.jsx';
 import './assets/style.css';
 import Caroussel from './components/Caroussel.jsx';
+import Genres from './components/Genres.jsx';
 
 function App() {
   const [films, setFilms] = useState(false);
