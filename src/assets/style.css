@@ -169,19 +169,48 @@ body {
 }
 
 .carousselPicture {
-  opacity: 0;
+  position: absolute;
+  height: 375px;
+  transform: translateX(-250px);
 }
 
-.animation {
+.fadein-animation {
   animation: fadeIn 2s ease-out forwards;
+}
+
+.fadeout-animation {
+  animation: fadeOut 2s ease-out forwards;
+}
+
+.carousselContainer {
+  overflow: hidden;
+  border: 1px solid red;
+  width: 250px;
+  height: 375px;
+  position: relative;
+}
+
+.carousselFrame {
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    transform: translateX(-250px);
   }
 
   to {
-    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(250px);
   }
 }

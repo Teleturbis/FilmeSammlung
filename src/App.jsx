@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   async function fetchData() {
-    let fetching = await client.getEntries({ content_type: 'film' });
+    let fetching = await client.getEntries({ content_type: 'filmItem2' });
     setFilms(fetching.items);
   }
 
