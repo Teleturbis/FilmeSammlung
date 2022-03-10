@@ -12,43 +12,58 @@ function Caroussel({ randomFilms }) {
 
   console.log(indexNumber, 'indexNumber');
   console.log(randomFilms, 'randomFilms');
-  console.log(cssClass, 'cssclass');
 
   const nextPicture = () => {
     if (indexNumber === 2) {
       setIndexNumber(0);
+      cssClassRight();
     } else {
       setIndexNumber(indexNumber + 1);
+      cssClassRight();
     }
   };
 
   const previousPicture = () => {
     if (indexNumber === 0) {
       setIndexNumber(2);
+      cssClassLeft();
     } else {
       setIndexNumber(indexNumber - 1);
+      cssClassLeft();
     }
   };
 
-  function cssClass() {
+  function cssClassRight() {
     if (indexNumber === 0) {
-      setPic1('fadein-animation carousselPicture');
+      setPic1('fadeinright-animation carousselPicture');
       setPic2('hidden');
-      setPic3('fadeout-animation carousselPicture');
+      setPic3('fadeoutright-animation carousselPicture');
     } else if (indexNumber === 1) {
-      setPic1('fadeout-animation carousselPicture');
-      setPic2('fadein-animation carousselPicture');
+      setPic1('fadeoutright-animation carousselPicture');
+      setPic2('fadeinright-animation carousselPicture');
       setPic3('hidden');
     } else {
       setPic1('hidden');
-      setPic2('fadeout-animation carousselPicture');
-      setPic3('fadein-animation carousselPicture');
+      setPic2('fadeoutright-animation carousselPicture');
+      setPic3('fadeinright-animation carousselPicture');
     }
   }
 
-  useEffect(() => {
-    cssClass();
-  }, [indexNumber]);
+  function cssClassLeft() {
+    if (indexNumber === 0) {
+      setPic1('fadeinleft-animation carousselPicture');
+      setPic2('hidden');
+      setPic3('fadeoutleft-animation carousselPicture');
+    } else if (indexNumber === 1) {
+      setPic1('fadeoutleft-animation carousselPicture');
+      setPic2('fadeinleft-animation carousselPicture');
+      setPic3('hidden');
+    } else {
+      setPic1('hidden');
+      setPic2('fadeoutleft-animation carousselPicture');
+      setPic3('fadeinleft-animation carousselPicture');
+    }
+  }
 
   return (
     <div className="carousselFrame">
@@ -59,7 +74,7 @@ function Caroussel({ randomFilms }) {
             <img
               src={randomFilms[0].fields.previewImage}
               alt=""
-              className={pic1}
+              className={`${pic1} carousselPicture`}
             />
             <img
               src={randomFilms[1].fields.previewImage}

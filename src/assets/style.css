@@ -174,12 +174,20 @@ body {
   /* transform: translateX(-250px); */
 }
 
-.fadein-animation {
-  animation: fadeIn 2s ease-out forwards;
+.fadeinright-animation {
+  animation: fadeInRight 2s ease-out forwards;
 }
 
-.fadeout-animation {
-  animation: fadeOut 2s ease-out forwards;
+.fadeoutright-animation {
+  animation: fadeOutRight 2s ease-out forwards;
+}
+
+.fadeinleft-animation {
+  animation: fadeOutLeft 2s ease-out forwards;
+}
+
+.fadeoutleft-animation {
+  animation: fadeInLeft 2s ease-out forwards;
 }
 
 .carousselContainer {
@@ -195,7 +203,7 @@ body {
   justify-content: center;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInRight {
   from {
     transform: translateX(-250px);
   }
@@ -205,13 +213,33 @@ body {
   }
 }
 
-@keyframes fadeOut {
+@keyframes fadeOutRight {
   from {
     transform: translateX(0px);
   }
 
   to {
     transform: translateX(250px);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(250px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-250px);
   }
 }
 
