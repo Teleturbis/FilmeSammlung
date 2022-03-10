@@ -66,9 +66,9 @@ function Caroussel({ randomFilms }) {
   }
 
   return (
-    <div className="carousselFrame">
+    <div className="carousselContainer">
       <button onClick={() => previousPicture()}>Left</button>
-      <div className="carousselContainer">
+      <div className="caroussel">
         {randomFilms.length && (
           <>
             <img

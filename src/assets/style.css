@@ -168,6 +168,10 @@ body {
   }
 }
 
+/**********************************/
+/*    ***       Caroussel    ***     */
+/**********************************/
+
 .carousselPicture {
   position: absolute;
   height: 375px;
@@ -190,7 +194,7 @@ body {
   animation: fadeInLeft 1.2s ease-in-out forwards;
 }
 
-.carousselContainer {
+.caroussel {
   overflow: hidden;
   border: 1px solid red;
   width: 250px;
@@ -198,7 +202,7 @@ body {
   position: relative;
 }
 
-.carousselFrame {
+.carousselContainer {
   display: flex;
   justify-content: center;
 }
