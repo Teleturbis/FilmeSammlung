@@ -1,26 +1,54 @@
 import React, { useState, useEffect } from 'react';
+import GenreLi from './GenreLi.jsx';
 
 export default function Genres({ films, client }) {
-  const arr = [];
+  const [sortedFilms, setSortedFilms] = useState(false);
   const [genresArr, setGenresArr] = useState(false);
+  const [genres, setGenres] = useState(false);
+
+  useEffect(async () => {
+    let fetching = await client.getEntries({ content_type: 'genres' });
+    setGenresArr(fetching.items);
+  }, []);
 
   useEffect(() => {
-    client
-      .getEntries({ content_type: 'genres' })
-      .then((response) => console.log('Genres von Contentful: ', response)) // =====> MUST BE ASYNC
-      .then((response) => setGenresArr(response));
-    sortFilms();
-  });
-
-  function sortFilms() {
     if (genresArr) {
-      for (let i = 0; i < genresArr.length; i++) {
-        arr[i] = films.filter((el) => el.fields.genre === genresArr[i]);
-      }
+      let tempArr = genresArr.map((el) => el.fields.genres);
+      setGenres(tempArr[0]);
     }
-  }
+  }, [genresArr]);
 
-  console.log('Sortiert: ', arr);
+  useEffect(() => console.log('films: ', films), [films]);
 
-  return <div>Genres</div>;
+  useEffect(() => {
+    console.log('vor Sortieren', genres);
+    if (films) {
+      let arr = [];
+      for (let i = 0; i < genres.length; i++) {
+        arr[i] = films.filter((el) => el.fields.genres[0] === genres[i]);
+      }
+      setSortedFilms(arr);
+    }
+  }, [films, genres]);
+
+  useEffect(() => console.log('Sortiert: ', sortedFilms), [sortedFilms]);
+
+  return (
+    <div>
+      {genres &&
+        sortedFilms &&
+        genres.map((genre, index) => (
+          <GenreLi
+            key={index}
+            index={index}
+            sortedFilms={sortedFilms[index]}
+            genre={genre}
+          />
+        ))}
+    </div>
+  );
 }
+
+/*
+genre = ["action", "scifi"]
+*/
