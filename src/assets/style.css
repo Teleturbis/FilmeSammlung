@@ -171,7 +171,7 @@ body {
 .carousselPicture {
   position: absolute;
   height: 375px;
-  transform: translateX(-250px);
+  /* transform: translateX(-250px); */
 }
 
 .fadein-animation {
@@ -213,4 +213,8 @@ body {
   to {
     transform: translateX(250px);
   }
+}
+
+.hidden {
+  display: none;
 }

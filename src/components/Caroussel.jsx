@@ -5,10 +5,11 @@ function Caroussel({ randomFilms }) {
   // console.log(randomFilms[0].fields.previewImage.fields.file.url);
 
   let [indexNumber, setIndexNumber] = useState(0);
-  const [cssClass, setCssClass] = useState([
-    'fadein-animation',
-    'fadeout-animation',
-  ]);
+
+  const [pic1, setPic1] = useState();
+  const [pic2, setPic2] = useState();
+  const [pic3, setPic3] = useState();
+
   console.log(indexNumber, 'indexNumber');
   console.log(randomFilms, 'randomFilms');
   console.log(cssClass, 'cssclass');
@@ -29,8 +30,24 @@ function Caroussel({ randomFilms }) {
     }
   };
 
+  function cssClass() {
+    if (indexNumber === 0) {
+      setPic1('fadein-animation carousselPicture');
+      setPic2('hidden');
+      setPic3('fadeout-animation carousselPicture');
+    } else if (indexNumber === 1) {
+      setPic1('fadeout-animation carousselPicture');
+      setPic2('fadein-animation carousselPicture');
+      setPic3('hidden');
+    } else {
+      setPic1('hidden');
+      setPic2('fadeout-animation carousselPicture');
+      setPic3('fadein-animation carousselPicture');
+    }
+  }
+
   useEffect(() => {
-    setCssClass(cssClass);
+    cssClass();
   }, [indexNumber]);
 
   return (
@@ -40,18 +57,19 @@ function Caroussel({ randomFilms }) {
         {randomFilms.length && (
           <>
             <img
-              src={randomFilms[indexNumber].fields.previewImage}
+              src={randomFilms[0].fields.previewImage}
               alt=""
-              className={`${cssClass[0]} carousselPicture`}
+              className={pic1}
             />
             <img
-              src={
-                randomFilms[
-                  indexNumber === 2 ? (indexNumber = 0) : indexNumber + 1
-                ].fields.previewImage
-              }
+              src={randomFilms[1].fields.previewImage}
               alt=""
-              className={`${cssClass[1]} carousselPicture`}
+              className={pic2}
+            />
+            <img
+              src={randomFilms[2].fields.previewImage}
+              alt=""
+              className={pic3}
             />
           </>
         )}
