@@ -34,11 +34,11 @@ function Caroussel({ randomFilms }) {
   };
 
   function cssClassRight() {
-    if (indexNumber === 0) {
+    if (indexNumber === 2) {
       setPic1('fadeinright-animation carousselPicture');
       setPic2('hidden');
       setPic3('fadeoutright-animation carousselPicture');
-    } else if (indexNumber === 1) {
+    } else if (indexNumber === 0) {
       setPic1('fadeoutright-animation carousselPicture');
       setPic2('fadeinright-animation carousselPicture');
       setPic3('hidden');
