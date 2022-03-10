@@ -175,19 +175,19 @@ body {
 }
 
 .fadeinright-animation {
-  animation: fadeInRight 2s ease-out forwards;
+  animation: fadeInRight 1.2s ease-in-out forwards;
 }
 
 .fadeoutright-animation {
-  animation: fadeOutRight 2s ease-out forwards;
+  animation: fadeOutRight 1.2s ease-in-out forwards;
 }
 
 .fadeinleft-animation {
-  animation: fadeOutLeft 2s ease-out forwards;
+  animation: fadeOutLeft 1.2s ease-in-out forwards;
 }
 
 .fadeoutleft-animation {
-  animation: fadeInLeft 2s ease-out forwards;
+  animation: fadeInLeft 1.2s ease-in-out forwards;
 }
 
 .carousselContainer {
