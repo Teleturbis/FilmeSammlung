@@ -21,14 +21,13 @@ function App() {
     let fetching = await client.getEntries();
     setFilms(fetching.items);
   }, []); */
-  //
 
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    let fetching = await client.getEntries();
+    let fetching = await client.getEntries({ content_type: 'filmItem2' });
     setFilms(fetching.items);
   }
 
@@ -57,8 +56,14 @@ function App() {
   return (
     <div>
       <Header />
-      <Caroussel randomFilms={randomFilms} />
       <div>{films && console.log(films)}</div>
+      <Routes>
+        <Route
+          path="/genre"
+          element={<Genres client={client} films={films} />}
+        />
+        <Route path="/" element={<Caroussel randomFilms={randomFilms} />} />
+      </Routes>
       <Footer />
     </div>
   );
