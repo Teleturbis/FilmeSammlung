@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import {
+  MdOutlineKeyboardArrowRight,
+  MdOutlineKeyboardArrowLeft,
+} from 'react-icons/md';
 
 function Caroussel({ randomFilms }) {
   // console.log(randomFilms[0].fields.title);
@@ -67,29 +72,39 @@ function Caroussel({ randomFilms }) {
 
   return (
     <div className="carousselContainer">
-      <button onClick={() => previousPicture()}>Left</button>
+      <button onClick={() => previousPicture()}>
+        <MdOutlineKeyboardArrowLeft />
+      </button>
       <div className="caroussel">
         {randomFilms.length && (
           <>
-            <img
-              src={randomFilms[0].fields.previewImage}
-              alt=""
-              className={`${pic1} carousselPicture`}
-            />
-            <img
-              src={randomFilms[1].fields.previewImage}
-              alt=""
-              className={pic2}
-            />
-            <img
-              src={randomFilms[2].fields.previewImage}
-              alt=""
-              className={pic3}
-            />
+            <NavLink to="">
+              <img
+                src={randomFilms[0].fields.previewImage}
+                alt=""
+                className={`${pic1} carousselPicture`}
+              />
+            </NavLink>
+            <NavLink to="">
+              <img
+                src={randomFilms[1].fields.previewImage}
+                alt=""
+                className={pic2}
+              />
+            </NavLink>
+            <NavLink to=" ">
+              <img
+                src={randomFilms[2].fields.previewImage}
+                alt=""
+                className={pic3}
+              />
+            </NavLink>
           </>
         )}
       </div>
-      <button onClick={() => nextPicture()}>Right</button>
+      <button onClick={() => nextPicture()}>
+        <MdOutlineKeyboardArrowRight />
+      </button>
     </div>
   );
 }
