@@ -196,7 +196,6 @@ body {
 
 .caroussel {
   overflow: hidden;
-  border: 1px solid red;
   width: 250px;
   height: 375px;
   position: relative;
