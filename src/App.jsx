@@ -21,7 +21,6 @@ function App() {
     let fetching = await client.getEntries();
     setFilms(fetching.items);
   }, []); */
-  //
 
   useEffect(() => {
     fetchData();
@@ -59,8 +58,14 @@ function App() {
   return (
     <div>
       <Header />
-      <Caroussel randomFilms={randomFilms} />
       <div>{films && console.log(films)}</div>
+      <Routes>
+        <Route
+          path="/genre"
+          element={<Genres client={client} films={films} />}
+        />
+        <Route path="/" element={<Caroussel randomFilms={randomFilms} />} />
+      </Routes>
       <Footer />
     </div>
   );
