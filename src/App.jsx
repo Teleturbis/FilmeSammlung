@@ -4,9 +4,8 @@ import * as Contentful from 'contentful';
 import Header from './components/general/Header.jsx';
 import Footer from './components/general/Footer.jsx';
 import './assets/style.css';
-import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
-
+import Main from './components/general/Main.jsx';
 function App() {
   const [films, setFilms] = useState(false);
   const [randomFilms, setRandomFilms] = useState([]);
@@ -64,7 +63,7 @@ function App() {
           path="/genre"
           element={<Genres client={client} films={films} />}
         />
-        <Route path="/" element={<Caroussel randomFilms={randomFilms} />} />
+        <Route path="/" element={<Main randomFilms={randomFilms} />} />
       </Routes>
       <Footer />
     </div>

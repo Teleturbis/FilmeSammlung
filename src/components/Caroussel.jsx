@@ -72,39 +72,42 @@ function Caroussel({ randomFilms }) {
 
   return (
     <div className="carousselContainer">
-      <button onClick={() => previousPicture()}>
-        <MdOutlineKeyboardArrowLeft />
-      </button>
-      <div className="caroussel">
-        {randomFilms.length && (
-          <>
-            <NavLink to="">
-              <img
-                src={randomFilms[0].fields.previewImage}
-                alt=""
-                className={`${pic1} carousselPicture`}
-              />
-            </NavLink>
-            <NavLink to="">
-              <img
-                src={randomFilms[1].fields.previewImage}
-                alt=""
-                className={pic2}
-              />
-            </NavLink>
-            <NavLink to=" ">
-              <img
-                src={randomFilms[2].fields.previewImage}
-                alt=""
-                className={pic3}
-              />
-            </NavLink>
-          </>
-        )}
+      <h3 className="carousselTitle">Filme des Tages</h3>
+      <div className="carousselFrame">
+        <button className="carousselButton" onClick={() => previousPicture()}>
+          <MdOutlineKeyboardArrowLeft />
+        </button>
+        <div className="caroussel">
+          {randomFilms.length && (
+            <>
+              <NavLink to="">
+                <img
+                  src={randomFilms[0].fields.previewImage}
+                  alt=""
+                  className={`${pic1} carousselPicture`}
+                />
+              </NavLink>
+              <NavLink to="">
+                <img
+                  src={randomFilms[1].fields.previewImage}
+                  alt=""
+                  className={pic2}
+                />
+              </NavLink>
+              <NavLink to=" ">
+                <img
+                  src={randomFilms[2].fields.previewImage}
+                  alt=""
+                  className={pic3}
+                />
+              </NavLink>
+            </>
+          )}
+        </div>
+        <button className="carousselButton" onClick={() => nextPicture()}>
+          <MdOutlineKeyboardArrowRight />
+        </button>
       </div>
-      <button onClick={() => nextPicture()}>
-        <MdOutlineKeyboardArrowRight />
-      </button>
     </div>
   );
 }
