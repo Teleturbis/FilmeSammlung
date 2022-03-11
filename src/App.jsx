@@ -6,6 +6,7 @@ import Footer from './components/general/Footer.jsx';
 import './assets/style.css';
 import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
+import FilmDetail from './components/FilmDetail.jsx';
 
 function App() {
   const [films, setFilms] = useState(false);
@@ -27,7 +28,7 @@ function App() {
   }, []);
 
   async function fetchData() {
-    let fetching = await client.getEntries({ content_type: 'filmItem2' });
+    let fetching = await client.getEntries({ content_type: 'filmItem3' });
     setFilms(fetching.items);
   }
 
@@ -63,6 +64,7 @@ function App() {
           element={<Genres client={client} films={films} />}
         />
         <Route path="/" element={<Caroussel randomFilms={randomFilms} />} />
+        <Route path="/film/:filmid" element={<FilmDetail films={films} />} />
       </Routes>
       <Footer />
     </div>

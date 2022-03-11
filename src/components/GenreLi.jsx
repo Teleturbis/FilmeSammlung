@@ -28,7 +28,7 @@ export default function GenreLi({ genre, sortedFilms, indexGenres }) {
           <NavLink
             style={{ backgroundImage: `url(${film.fields.previewImage})` }}
             className="cardGenre"
-            to={`/films/${film.sys.id}`}
+            to={`/film/${film.sys.id}`}
             key={index}
           >
             <h4
