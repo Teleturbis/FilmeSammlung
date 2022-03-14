@@ -1,21 +1,27 @@
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import * as Contentful from 'contentful';
-import Header from './components/general/Header.jsx';
-import Footer from './components/general/Footer.jsx';
-import './assets/style.css';
-import Caroussel from './components/Caroussel.jsx';
-import Genres from './components/Genres.jsx';
+import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import * as Contentful from "contentful";
+import Header from "./components/general/Header.jsx";
+import Footer from "./components/general/Footer.jsx";
+import "./assets/style.css";
+import Caroussel from "./components/Caroussel.jsx";
+import Genres from "./components/Genres.jsx";
+import LogIn from "./components/LogIn.jsx";
 
 function App() {
   const [films, setFilms] = useState(false);
   const [randomFilms, setRandomFilms] = useState([]);
+  const [user, setUser] = useState({ loggedIn: false, userName: "" });
 
   const client = Contentful.createClient({
-    space: '5o4kejg5nlut',
-    accessToken: 'IPErBwAcWvsPYzYEBdLbsMibGKstWOFf7yPBwZHWMSo',
-    host: 'cdn.contentful.com',
+    space: "5o4kejg5nlut",
+    accessToken: "IPErBwAcWvsPYzYEBdLbsMibGKstWOFf7yPBwZHWMSo",
+    host: "cdn.contentful.com",
   });
+
+  function userLoggedIn(userName) {
+    setUser({ loggedIn: true, userName: userName });
+  }
 
   /* useEffect(async () => {
     let fetching = await client.getEntries();
@@ -27,7 +33,7 @@ function App() {
   }, []);
 
   async function fetchData() {
-    let fetching = await client.getEntries({ content_type: 'filmItem3' });
+    let fetching = await client.getEntries({ content_type: "filmItem3" });
     setFilms(fetching.items);
   }
 
@@ -55,9 +61,17 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <div>{films && console.log(films)}</div>
       <Routes>
+        <Route path="/login">
+          <Route
+            index
+            element={
+              <LogIn client={client} userLoggedIn={userLoggedIn} user={user} />
+            }
+          ></Route>
+        </Route>
         <Route
           path="/genre"
           element={<Genres client={client} films={films} />}
