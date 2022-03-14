@@ -8,6 +8,7 @@ import Main from './components/general/Main.jsx';
 import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
 import LogIn from './components/LogIn.jsx';
+import Hot from './components/Hot';
 
 function App() {
   const [films, setFilms] = useState(false);
@@ -67,6 +68,7 @@ function App() {
       <Header user={user} />
       <div>{films && console.log(films)}</div>
       <Routes>
+        <Route path="hot" element={<Hot />}></Route>
         <Route path="/login">
           <Route
             index
