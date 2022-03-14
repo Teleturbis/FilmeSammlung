@@ -21,7 +21,7 @@ function App() {
   });
 
   function userLoggedIn(userName, uuid) {
-    setUser({ loggedIn: true, userName: userName, id: uuid });
+    setUser({ loggedIn: !user.loggedIn, userName: userName, id: uuid });
   }
 
   /* useEffect(async () => {

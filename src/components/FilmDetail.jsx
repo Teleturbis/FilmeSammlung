@@ -99,22 +99,7 @@ export default function FilmDetails({ films, user }) {
             </ul>
           </div>
           <div>
-            <AddComment user={user} comments={filmDetails.fields.comments} />
-            {filmDetails.fields.comments.map((comment, index) => {
-              return (
-                <div key={index} className="commentDiv">
-                  <div className="commentHeader">
-                    <p className="commentAuthor">{comment.author}</p>
-                    <p className="commentDate">{comment.created_at}</p>
-                  </div>
-                  {comment.content.split("\n").map((str, index) => (
-                    <p key={index} className="comment-paragraph">
-                      {str}
-                    </p>
-                  ))}
-                </div>
-              );
-            })}
+            <AddComment entryId={filmDetails.sys.id} user={user} comments={filmDetails.fields.comments} />
           </div>
         </div>
       )}

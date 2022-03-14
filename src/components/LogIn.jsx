@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal.jsx";
 
-export default function LogIn({ client, userLoggedIn }) {
+export default function LogIn({ client, userLoggedIn, user }) {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [modal, setModal] = useState(false);
@@ -10,7 +10,7 @@ export default function LogIn({ client, userLoggedIn }) {
     client
       .getEntries({
         content_type: "user",
-        "fields.username": usernameInput,
+        "fields.username": usernameInput.toLowerCase(),
       })
       .then((response) => {
         if (
@@ -27,6 +27,12 @@ export default function LogIn({ client, userLoggedIn }) {
       setUsernameInput("")
   }
 
+  function handleLogOut(){
+
+    userLoggedIn("", "")
+
+  }
+
   function handleRegistration() {
     setModal(true);
   }
@@ -40,7 +46,7 @@ export default function LogIn({ client, userLoggedIn }) {
       {modal ? (
         <Modal client={client} changeModalDisplayed={changeModalDisplayed} />
       ) : null}
-      <div>
+      { user.loggedIn ? <input type="button" value="LogOut" onClick={() => handleLogOut()} /> : <div>
         <input
           type="text"
           placeholder="Username"
@@ -54,7 +60,7 @@ export default function LogIn({ client, userLoggedIn }) {
           onChange={(e) => setPasswordInput(e.target.value)}
         />
         <input type="button" value="LogIn" onClick={() => handleLogIn()} />
-      </div>
+      </div>}
       <input
         type="button"
         value="Registrieren"
