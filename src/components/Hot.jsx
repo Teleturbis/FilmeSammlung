@@ -8,7 +8,7 @@ function Hot({ films }) {
 
   useEffect(() => {
     if (films.length > 0) {
-      setHotFilms(films.filter((film) => film.fields.voting > 1000));
+      setHotFilms(films.filter((film) => film.fields.voting > 3000));
     }
   }, [films]);
 
@@ -25,6 +25,7 @@ function Hot({ films }) {
                 alt="previewImage"
               />
             </NavLink>
+            <p>Points {film.fields.voting}</p>
           </div>
         ))}
     </div>
