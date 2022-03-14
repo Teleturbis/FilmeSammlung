@@ -162,6 +162,77 @@ body {
   opacity: 1;
 }
 
+/**********************************/
+/*    ***       MODAL     ***     */
+/**********************************/
+
+.modal{
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.75);
+
+}
+
+.innerModal{
+
+  background-color: var(--bgContent);
+  width: fit-content;
+  height: 35%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.modalElement{
+
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 80%;
+  padding: 1rem 2rem;
+
+  border-radius: 1rem;
+  border: 1px solid var(--textColor);
+
+  font-family: var(--standartFont);
+  letter-spacing: 0.25rem;
+  font-size: 2rem;
+
+}
+
+.modalBtn{
+
+  width: 90%;
+  background-color: rgb(221, 150, 150);
+  cursor: pointer;
+
+  transition: 150ms;
+
+}
+
+.modalBtn:hover{
+
+  letter-spacing: 0.5rem;
+  background-color: rgb(221, 127, 127);
+
+}
+
+.modalBtn:active{
+
+  letter-spacing: 0.05rem;
+  background-color: rgb(228, 91, 91);
+
+}
+
+
 @media only screen and (max-width: 430px) {
   .headlineNavLink {
     font-size: 8rem;

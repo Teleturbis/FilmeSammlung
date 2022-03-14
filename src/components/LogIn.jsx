@@ -17,12 +17,12 @@ export default function LogIn({ client, userLoggedIn }) {
           response.items[0] &&
           response.items[0].fields.password === passwordInput
         ) {
-          userLoggedIn(usernameInput);
+          userLoggedIn(usernameInput, response.items[0].fields.uuid);
         } else if (response.items[0]) {
           window.alert("FALSCHES PASSWORT");
         }
       })
-      .catch(window.alert("User nicht gefunden"));
+      .catch(err => window.alert("ALERT User nicht gefunden | ", err));
       setPasswordInput("")
       setUsernameInput("")
   }

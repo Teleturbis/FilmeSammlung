@@ -12,7 +12,7 @@ import LogIn from "./components/LogIn.jsx";
 function App() {
   const [films, setFilms] = useState(false);
   const [randomFilms, setRandomFilms] = useState([]);
-  const [user, setUser] = useState({ loggedIn: false, userName: "" });
+  const [user, setUser] = useState({ loggedIn: false, userName: "", id: "" });
 
   const client = Contentful.createClient({
     space: "5o4kejg5nlut",
@@ -20,8 +20,8 @@ function App() {
     host: "cdn.contentful.com",
   });
 
-  function userLoggedIn(userName) {
-    setUser({ loggedIn: true, userName: userName });
+  function userLoggedIn(userName, uuid) {
+    setUser({ loggedIn: true, userName: userName, id: uuid });
   }
 
   /* useEffect(async () => {
