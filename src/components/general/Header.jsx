@@ -5,12 +5,12 @@ export default function Header({ user }) {
   return (
     <div className="headerDiv">
       <div className="headlineDiv">
-      <h1>
-        <NavLink className="headlineNavLink" to="/">
-          The Collector
-        </NavLink>
-      </h1>
-      {user.loggedIn ? <p>{user.userName}</p> : null}
+        <h1>
+          <NavLink className="headlineNavLink" to="/">
+            The Collector
+          </NavLink>
+        </h1>
+        {user.loggedIn ? <p>{user.userName}</p> : null}
       </div>
       <nav className="headerNavbar">
         <NavLink className="navLink" to="/genre">

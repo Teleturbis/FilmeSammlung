@@ -6,7 +6,7 @@ import Footer from "./components/general/Footer.jsx";
 import "./assets/style.css";
 import Caroussel from "./components/Caroussel.jsx";
 import Genres from "./components/Genres.jsx";
-import LogIn from "./components/LogIn.jsx"
+import LogIn from "./components/LogIn.jsx";
 
 function App() {
   const [films, setFilms] = useState(false);
@@ -18,6 +18,10 @@ function App() {
     accessToken: "IPErBwAcWvsPYzYEBdLbsMibGKstWOFf7yPBwZHWMSo",
     host: "cdn.contentful.com",
   });
+
+  function userLoggedIn(userName) {
+    setUser({ loggedIn: true, userName: userName });
+  }
 
   /* useEffect(async () => {
     let fetching = await client.getEntries();
