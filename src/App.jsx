@@ -6,6 +6,7 @@ import Footer from './components/general/Footer.jsx';
 import './assets/style.css';
 import Genres from './components/Genres.jsx';
 import Main from './components/general/Main.jsx';
+
 function App() {
   const [films, setFilms] = useState(false);
   const [randomFilms, setRandomFilms] = useState([]);
