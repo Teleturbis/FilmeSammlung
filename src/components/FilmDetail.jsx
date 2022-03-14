@@ -82,7 +82,7 @@ export default function FilmDetails({ films }) {
           <div>
             {filmDetails.fields.comments.map((el, index) => {
               return (
-                <div style={{ marginTop: '5rem' }}>
+                <div key={index} style={{ marginTop: '5rem' }}>
                   <div style={{ display: 'flex', margin: '0' }}>
                     <p style={{ fontSize: '2rem', margin: '0 2rem' }}>
                       {el.author}
