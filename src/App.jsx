@@ -68,7 +68,7 @@ function App() {
       <Header user={user} />
       <div>{films && console.log(films)}</div>
       <Routes>
-        <Route path="hot" element={<Hot />}></Route>
+        <Route path="hot" element={<Hot films={films} />}></Route>
         <Route path="/login">
           <Route
             index
