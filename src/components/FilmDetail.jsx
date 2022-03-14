@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Trailer from "./Trailer.jsx";
 import "../assets/filmItemsStyle.css";
+import AddComment from "./AddComment.jsx";
 
-export default function FilmDetails({ films }) {
+export default function FilmDetails({ films, user }) {
   const [filmDetails, setFilmDetails] = useState(false);
 
   let { filmid } = useParams();
@@ -26,11 +27,11 @@ export default function FilmDetails({ films }) {
               filmName={filmDetails.fields.title}
             />
             <div className="filmitemHeaderDiv">
-              <img src={filmDetails.fields.previewImage} alt="Film Image" />
               <div>
                 <h2>{filmDetails.fields.title}</h2>
                 <p>{filmDetails.fields.description}</p>
               </div>
+              <img src={filmDetails.fields.previewImage} alt="Film Image" />
             </div>
           </div>
           <div>
@@ -98,15 +99,7 @@ export default function FilmDetails({ films }) {
             </ul>
           </div>
           <div>
-            <div className="userAddComment">
-              <textarea
-                cols="30"
-                rows="10"
-                style={{ resize: "none" }}
-                placeholder="Neuen Kommentar schreiben"
-              ></textarea>
-              <input type="button" value="Posten" />
-            </div>
+            <AddComment user={user} comments={filmDetails.fields.comments} />
             {filmDetails.fields.comments.map((comment, index) => {
               return (
                 <div key={index} className="commentDiv">
@@ -114,9 +107,11 @@ export default function FilmDetails({ films }) {
                     <p className="commentAuthor">{comment.author}</p>
                     <p className="commentDate">{comment.created_at}</p>
                   </div>
-                  <p className="commentBody">
-                    {comment.content.split("\n").map((str, index) => <p key={index} className="comment-paragraph">{str}</p>)}
-                  </p>
+                  {comment.content.split("\n").map((str, index) => (
+                    <p key={index} className="comment-paragraph">
+                      {str}
+                    </p>
+                  ))}
                 </div>
               );
             })}

@@ -27,21 +27,12 @@ export default function Trailer({ filmName }) {
       autoplay: 1,
       controls: 1,
       loop: 1,
-      disablekb: 1,
     },
   };
 
   return (
     <div style={{ height: `${height}px` }}>
       {url ? <YouTube videoId={url} opts={opts} onReady={_onReady} /> : null}
-      <div
-        className="trailerOverlay"
-        style={{
-          top: `-${height + 8}px`,
-          height: `${height}px`,
-          width: `${width}px`,
-        }}
-      ></div>
     </div>
   );
 }

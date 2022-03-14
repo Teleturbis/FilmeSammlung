@@ -78,7 +78,7 @@ function App() {
           element={<Genres client={client} films={films} />}
         />
         <Route path="/" element={<Caroussel randomFilms={randomFilms} />} />
-        <Route path="/film/:filmid" element={<FilmDetail films={films} />} />
+        <Route path="/film/:filmid" element={<FilmDetail films={films} user={user} />} />
       </Routes>
       <Footer />
     </div>

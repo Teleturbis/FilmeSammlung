@@ -4,10 +4,6 @@
   font-family: "Passion One", cursive;
 }
 
-.trailerDiv {
-  background-color: tomato;
-}
-
 .trailerOverlay {
   position: relative;
 }
@@ -17,8 +13,6 @@
   justify-content: space-between;
 
   padding: 0 5rem;
-
-  height: fit-content;
 }
 
 .filmitemHeaderDiv > img {
@@ -27,7 +21,7 @@
 
   border-radius: 1rem;
 
-  box-shadow: 10px 10px 15px rgba(255, 255, 255, 0.25);
+  box-shadow: 10px -10px 15px rgba(255, 255, 255, 0.25);
 }
 
 .filmitemHeaderDiv > div {
@@ -144,8 +138,7 @@
 }
 
 .commentBody {
-
-    letter-spacing: 0.15rem;
+  letter-spacing: 0.15rem;
 }
 
 /* .comment-paragraph {
