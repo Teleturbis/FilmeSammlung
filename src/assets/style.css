@@ -308,3 +308,29 @@ body {
 .carousselButton:active {
   border: 1px solid black;
 }
+
+/**********************************/
+/*    ***       Hot    ***     */
+/**********************************/
+
+.hotFilmsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  justify-items: center;
+  gap: 1%;
+}
+
+.hotPreviewImage {
+  width: 400px;
+}
+
+.hotTitle {
+  font-size: 3rem;
+}
+
+.hotCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
