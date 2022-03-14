@@ -54,6 +54,7 @@ export default function Modal({ changeModalDisplayed }) {
         .catch(err => console.error("upload new User", err));
       setPasswordInput("");
       setUsernameInput("");
+      changeModalDisplayed();
     } else {
       window.alert("Bitte Passwort eingeben!");
     }
@@ -85,7 +86,7 @@ export default function Modal({ changeModalDisplayed }) {
         <input
           className="modalElement modalBtn"
           type="button"
-          value="Log In"
+          value="Registrieren"
           onClick={() => handleRegistration()}
         />
       </div>

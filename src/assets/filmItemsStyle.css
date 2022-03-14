@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
+
+.filmDetails {
+  font-family: "Passion One", cursive;
+}
+
+.trailerDiv {
+  background-color: tomato;
+}
+
+.trailerOverlay {
+  position: relative;
+}
+
+.filmitemHeaderDiv {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 5rem;
+
+  height: fit-content;
+}
+
+.filmitemHeaderDiv > img {
+  position: relative;
+  top: -40rem;
+
+  border-radius: 1rem;
+
+  box-shadow: 10px 10px 15px rgba(255, 255, 255, 0.25);
+}
+
+.filmitemHeaderDiv > div {
+  width: 70%;
+  height: fit-content;
+}
+
+.ulFilmDetailsGenres {
+  width: 20rem;
+}
+
+.ulFilmDetailsActors {
+  width: 45rem;
+  height: fit-content;
+}
+
+.ulFilmDetailsParagraphNoHover {
+  display: inline-block;
+  margin: 0.2rem 1rem;
+
+  padding: 0.25rem 0.5rem;
+}
+
+.ulFilmDetailsParagraph {
+  display: inline-block;
+  margin: 0.2rem 1rem;
+
+  padding: 0.25rem 0.5rem;
+
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+.ulFilmDetailsParagraph:hover {
+  background-color: rgba(128, 128, 128, 0.5);
+  border: 1px solid rgba(128, 128, 128, 0.75);
+}
+
+.userAddComment {
+  display: flex;
+  justify-content: center;
+}
+
+.userAddComment > input {
+  display: block;
+  height: 10rem;
+  width: 20rem;
+
+  margin: auto 2rem;
+  padding: 1rem 2rem;
+
+  border-radius: 1rem;
+  border: 1px solid var(--textColor);
+
+  font-family: var(--standartFont);
+  letter-spacing: 0.25rem;
+  font-size: 2rem;
+
+  background-color: rgb(221, 150, 150);
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+.userAddComment > input:hover {
+  letter-spacing: 0.5rem;
+  background-color: rgb(221, 127, 127);
+}
+
+.userAddComment > input:active {
+  letter-spacing: 0.05rem;
+  background-color: rgb(228, 91, 91);
+}
+
+.userAddComment > textarea {
+  font-family: var(--standartFont);
+
+  width: 77%;
+  height: 20rem;
+
+  padding: 1rem 2rem;
+  margin: 0 2rem;
+
+  border: 1px solid var(--textColor);
+  border-radius: 1rem;
+}
+
+.commentDiv {
+  width: 90%;
+  margin: 2.5rem auto;
+  padding: 2rem;
+
+  border: 1px solid var(--textColor);
+  border-radius: 1rem;
+}
+
+.commentHeader {
+  display: flex;
+  margin: 0;
+}
+
+.commentAuthor {
+  margin: auto 1rem;
+  font-size: 3rem;
+}
+
+.commentDate {
+  margin: auto 1rem;
+  font-size: 2rem;
+}
+
+.commentBody {
+
+    letter-spacing: 0.15rem;
+}
+
+/* .comment-paragraph {
+  border: 1px solid lightgrey;
+  padding: 1rem;
+  border-radius: 5px;
+} */

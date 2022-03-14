@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Trailer from './Trailer.jsx';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Trailer from "./Trailer.jsx";
+import "../assets/filmItemsStyle.css";
 
 export default function FilmDetails({ films }) {
   const [filmDetails, setFilmDetails] = useState(false);
@@ -13,16 +14,19 @@ export default function FilmDetails({ films }) {
     }
   }, [films]);
 
-  console.log('FILMDETAILS', filmDetails);
+  console.log("FILMDETAILS", filmDetails);
 
   return (
     <div>
       {filmDetails && (
-        <div>
+        <div className="filmDetails">
           <div>
-            <Trailer filmName={filmDetails.fields.title} />
-            <div>
-              <img src={filmDetails.fields.previewImage} alt="" />
+            <Trailer
+              className="trailerDiv"
+              filmName={filmDetails.fields.title}
+            />
+            <div className="filmitemHeaderDiv">
+              <img src={filmDetails.fields.previewImage} alt="Film Image" />
               <div>
                 <h2>{filmDetails.fields.title}</h2>
                 <p>{filmDetails.fields.description}</p>
@@ -30,68 +34,89 @@ export default function FilmDetails({ films }) {
             </div>
           </div>
           <div>
-            <ul style={{ display: 'flex' }}>
-              <ul>
+            <ul style={{ display: "flex" }}>
+              <ul className="ulFilmDetailsGenres">
                 <li>
                   <h3 style={{ margin: 0 }}>Genre:</h3>
                 </li>
                 {filmDetails.fields.genres.map((el, index) => (
-                  <li key={index}>{el}</li>
+                  <p className="ulFilmDetailsParagraph" key={index}>
+                    {el}
+                  </p>
                 ))}
               </ul>
-              <ul>
+              <ul className="ulFilmDetailsActors">
                 <li>
                   <h3 style={{ margin: 0 }}>Schauspieler:</h3>
                 </li>
                 {filmDetails.fields.actors.map((el, index) => (
-                  <li key={index}>{el}</li>
+                  <p className="ulFilmDetailsParagraph" key={index}>
+                    {el}
+                  </p>
                 ))}
               </ul>
               <ul>
                 <li>
                   <h3 style={{ margin: 0 }}>Company:</h3>
                 </li>
-                <li>{filmDetails.fields.company}</li>
+                <p className="ulFilmDetailsParagraph">
+                  {filmDetails.fields.company}
+                </p>
               </ul>
               <ul>
                 <li>
                   <h3 style={{ margin: 0 }}>Veröffentlicht:</h3>
                 </li>
-                <li>{filmDetails.fields.date}</li>
+                <p className="ulFilmDetailsParagraphNoHover">
+                  {filmDetails.fields.date}
+                </p>
               </ul>
               <ul>
                 <li>
                   <h3 style={{ margin: 0 }}>Director:</h3>
                 </li>
-                <li>{filmDetails.fields.director}</li>
+                <p className="ulFilmDetailsParagraph">
+                  {filmDetails.fields.director}
+                </p>
               </ul>
               <ul>
                 <li>
                   <h3 style={{ margin: 0 }}>Länge:</h3>
                 </li>
-                <li>{filmDetails.fields.lengthInMin} min</li>
+                <p className="ulFilmDetailsParagraphNoHover">
+                  {filmDetails.fields.lengthInMin} min
+                </p>
               </ul>
               <ul>
                 <li>
                   <h3 style={{ margin: 0 }}>Likes:</h3>
                 </li>
-                <li>{filmDetails.fields.voting}</li>
+                <p className="ulFilmDetailsParagraphNoHover">
+                  {filmDetails.fields.voting}
+                </p>
               </ul>
             </ul>
           </div>
           <div>
-            {filmDetails.fields.comments.map((el, index) => {
+            <div className="userAddComment">
+              <textarea
+                cols="30"
+                rows="10"
+                style={{ resize: "none" }}
+                placeholder="Neuen Kommentar schreiben"
+              ></textarea>
+              <input type="button" value="Posten" />
+            </div>
+            {filmDetails.fields.comments.map((comment, index) => {
               return (
-                <div key={index} style={{ marginTop: '5rem' }}>
-                  <div style={{ display: 'flex', margin: '0' }}>
-                    <p style={{ fontSize: '2rem', margin: '0 2rem' }}>
-                      {el.author}
-                    </p>
-                    <p style={{ fontSize: '2rem', margin: '0 2rem' }}>
-                      {el.created_at}
-                    </p>
+                <div key={index} className="commentDiv">
+                  <div className="commentHeader">
+                    <p className="commentAuthor">{comment.author}</p>
+                    <p className="commentDate">{comment.created_at}</p>
                   </div>
-                  <p style={{ margin: '1rem 0' }}>{el.content}</p>
+                  <p className="commentBody">
+                    {comment.content.split("\n").map((str, index) => <p key={index} className="comment-paragraph">{str}</p>)}
+                  </p>
                 </div>
               );
             })}

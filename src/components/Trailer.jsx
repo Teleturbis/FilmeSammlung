@@ -1,33 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import movieTrailer from 'movie-trailer';
-import YouTube from 'react-youtube';
+import React, { useEffect, useState } from "react";
+import movieTrailer from "movie-trailer";
+import YouTube from "react-youtube";
 
 export default function Trailer({ filmName }) {
   const [url, setUrl] = useState(false);
+  const [width, setWidth] = useState(500);
+  const [height, setHeight] = useState(500);
 
-  useEffect(
-    () =>
-      movieTrailer(filmName, { id: true }).then((response) => setUrl(response)),
-    []
-  );
+  useEffect(() => {
+    movieTrailer(filmName, { id: true }).then((response) => setUrl(response));
+    setWidth(window.innerWidth - 17);
+    setHeight((window.innerWidth / 164) * 80);
+  }, []);
 
   function _onReady(event) {
     // access to player in all event handlers via event.target
-    event.target.pauseVideo();
+    event.target.mute();
+    event.target.playVideo();
   }
 
   const opts = {
     //VERHÄLTNISS H:B = 1:1.64
-    height: '250',
-    width: '410',
+    height: `${height}`,
+    width: `${width}`,
     playerVars: {
       autoplay: 1,
+      controls: 1,
+      loop: 1,
+      disablekb: 1,
     },
   };
 
   return (
-    <div>
+    <div style={{ height: `${height}px` }}>
       {url ? <YouTube videoId={url} opts={opts} onReady={_onReady} /> : null}
+      <div
+        className="trailerOverlay"
+        style={{
+          top: `-${height + 8}px`,
+          height: `${height}px`,
+          width: `${width}px`,
+        }}
+      ></div>
     </div>
   );
 }
