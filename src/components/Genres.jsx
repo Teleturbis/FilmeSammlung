@@ -36,7 +36,7 @@ export default function Genres({ films, client }) {
   return (
     <div>
       {genres &&
-        sortedFilms &&
+        sortedFilms.length > 0 &&
         genres.map((genre, index) => (
           <GenreLi
             key={index}
