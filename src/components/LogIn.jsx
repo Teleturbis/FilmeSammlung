@@ -18,19 +18,20 @@ export default function LogIn({ client, userLoggedIn, user }) {
           response.items[0].fields.password === passwordInput
         ) {
           userLoggedIn(usernameInput, response.items[0].fields.uuid);
+          localStorage.setItem("loggedIn", true);
+          localStorage.setItem("userName", usernameInput);
+          localStorage.setItem("id", response.items[0].fields.uuid);
         } else if (response.items[0]) {
           window.alert("FALSCHES PASSWORT");
         }
       })
-      .catch(err => window.alert("ALERT User nicht gefunden | ", err));
-      setPasswordInput("")
-      setUsernameInput("")
+      .catch((err) => window.alert("ALERT User nicht gefunden | ", err));
+    setPasswordInput("");
+    setUsernameInput("");
   }
 
-  function handleLogOut(){
-
-    userLoggedIn("", "")
-
+  function handleLogOut() {
+    userLoggedIn("", "");
   }
 
   function handleRegistration() {
@@ -46,21 +47,25 @@ export default function LogIn({ client, userLoggedIn, user }) {
       {modal ? (
         <Modal client={client} changeModalDisplayed={changeModalDisplayed} />
       ) : null}
-      { user.loggedIn ? <input type="button" value="LogOut" onClick={() => handleLogOut()} /> : <div>
-        <input
-          type="text"
-          placeholder="Username"
-          value={usernameInput}
-          onChange={(e) => setUsernameInput(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Passwort"
-          value={passwordInput}
-          onChange={(e) => setPasswordInput(e.target.value)}
-        />
-        <input type="button" value="LogIn" onClick={() => handleLogIn()} />
-      </div>}
+      {user.loggedIn ? (
+        <input type="button" value="LogOut" onClick={() => handleLogOut()} />
+      ) : (
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            value={usernameInput}
+            onChange={(e) => setUsernameInput(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Passwort"
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+          />
+          <input type="button" value="LogIn" onClick={() => handleLogIn()} />
+        </div>
+      )}
       <input
         type="button"
         value="Registrieren"
