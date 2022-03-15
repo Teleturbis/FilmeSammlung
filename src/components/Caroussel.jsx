@@ -87,14 +87,14 @@ function Caroussel({ randomFilms }) {
                   className={`${pic1} carousselPicture`}
                 />
               </NavLink>
-              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
+              <NavLink to={`/film/${randomFilms[1].sys.id}`}>
                 <img
                   src={randomFilms[1].fields.previewImage}
                   alt=""
                   className={pic2}
                 />
               </NavLink>
-              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
+              <NavLink to={`/film/${randomFilms[2].sys.id}`}>
                 <img
                   src={randomFilms[2].fields.previewImage}
                   alt=""
