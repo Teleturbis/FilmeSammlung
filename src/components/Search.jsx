@@ -8,26 +8,36 @@ export default function Search({ films }) {
   function handleSearch() {
     let tempArr = [];
     if (films) {
-      console.log("temp1", tempArr);
-      tempArr = films.map((el) =>
-        el.fields.company.includes(searchName) ? el : null
-      );
-      tempArr.push(
-        films.map((el) => {
-          if (
-            el.fields.actors.includes(searchName) ||
-            el.fields.director.includes(searchName) ||
-            el.fields.genres.includes(searchName) ||
-            el.fields.title.includes(searchName)
-          ) {
-            return el;
-          }
-        })
-      );
-      console.log("temp2", tempArr);
+      tempArr = films.map((el) => {
+        if (
+          el.fields.director.toLowerCase().includes(searchName) ||
+          el.fields.company.toLowerCase().includes(searchName) ||
+          el.fields.actors.includes(searchName) ||
+          el.fields.genres.includes(searchName) ||
+          el.fields.title.toLowerCase().includes(searchName)
+        ) {
+          return el;
+        } else {
+          /* el.fields.actors.map((actor) => {
+            if (actor.toLowerCase().includes(searchName)) {
+              return el;
+            } else return null;
+          });
+
+          el.fields.genres.map((genre) => {
+            if (genre.toLowerCase().includes(searchName)) {
+              return el;
+            } else return null;
+          }); */
+          return null
+        }
+      });
+      console.log("temp", tempArr);
       setSearchResult(tempArr.filter((el) => el !== null));
     }
   }
+
+  console.log("SEARCH", searchResult);
 
   return (
     <div>
@@ -36,7 +46,7 @@ export default function Search({ films }) {
         <input type="button" value="Suchen!" onClick={() => handleSearch()} />
       </div>
       <div className="genreList">
-        <h3>{/* searchName */}</h3>
+        <h3>{searchName}</h3>
         <div className="filmsDiv">
           {searchResult &&
             searchResult.map((film, index) => (
