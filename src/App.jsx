@@ -1,44 +1,28 @@
-<<<<<<< HEAD
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as Contentful from 'contentful';
 import Header from './components/general/Header.jsx';
 import Footer from './components/general/Footer.jsx';
 import './assets/style.css';
-import Main from './components/general/Main.jsx';
 import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
+import FilmDetail from './components/FilmDetail.jsx';
 import LogIn from './components/LogIn.jsx';
-=======
-import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-import * as Contentful from "contentful";
-import Header from "./components/general/Header.jsx";
-import Footer from "./components/general/Footer.jsx";
-import "./assets/style.css";
-import Caroussel from "./components/Caroussel.jsx";
-import Genres from "./components/Genres.jsx";
-import FilmDetail from "./components/FilmDetail.jsx";
-import LogIn from "./components/LogIn.jsx";
-import SearchActor from "./components/SearchActor.jsx"
-import SearchDirector from "./components/SearchDirector.jsx"
-import SearchCompany from "./components/SearchCompany.jsx"
-import SearchGenre from "./components/SearchGenre.jsx"
->>>>>>> main
+import SearchActor from './components/SearchActor.jsx';
+import SearchDirector from './components/SearchDirector.jsx';
+import SearchCompany from './components/SearchCompany.jsx';
+import SearchGenre from './components/SearchGenre.jsx';
+import Main from './components/general/Main.jsx';
 
 function App() {
   const [films, setFilms] = useState(false);
   const [randomFilms, setRandomFilms] = useState([]);
-<<<<<<< HEAD
-  const [user, setUser] = useState({ loggedIn: false, userName: '' });
-=======
-  const [user, setUser] = useState({ loggedIn: false, userName: "", id: "" });
+  const [user, setUser] = useState({ loggedIn: false, userName: '', id: '' });
   const [localStorageUser, setLocalStorageUser] = useState({
     loggedIn: false,
-    userName: "",
-    id: "",
+    userName: '',
+    id: '',
   });
->>>>>>> main
 
   const client = Contentful.createClient({
     space: '5o4kejg5nlut',
@@ -52,14 +36,14 @@ function App() {
 
   useEffect(() => {
     fetchData();
-    if (localStorage.getItem("loggedIn") === "true") {
+    if (localStorage.getItem('loggedIn') === 'true') {
       setUser({
-        loggedIn: localStorage.getItem("loggedIn"),
-        userName: localStorage.getItem("userName"),
-        id: localStorage.getItem("id"),
+        loggedIn: localStorage.getItem('loggedIn'),
+        userName: localStorage.getItem('userName'),
+        id: localStorage.getItem('id'),
       });
     } else {
-      setUser({ loggedIn: false, userName: "", id: "" });
+      setUser({ loggedIn: false, userName: '', id: '' });
     }
   }, []);
 
@@ -128,15 +112,12 @@ function App() {
           path="/genre"
           element={<Genres client={client} films={films} />}
         />
-<<<<<<< HEAD
         <Route path="/" element={<Main randomFilms={randomFilms} />} />
-=======
-        <Route path="/" element={<Caroussel randomFilms={randomFilms} />} />
+
         <Route
           path="/film/:filmid"
           element={<FilmDetail films={films} user={user} />}
         />
->>>>>>> main
       </Routes>
       <Footer />
     </div>
