@@ -1,0 +1,70 @@
+/**********************************/
+/*    ***       GENRES    ***     */
+/**********************************/
+
+/**********************************/
+/*    ***    GENRELIST    ***     */
+/**********************************/
+.genreList {
+  border: 1px solid rgb(200, 200, 200);
+  margin: 3rem 5rem;
+  padding: 2rem 0;
+  border-radius: 0.5rem;
+}
+
+.genreList > h3 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.filmsDiv {
+  display: flex;
+  overflow: auto;
+}
+
+.cardGenre {
+  display: inline-block;
+  margin: 1rem 1rem;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-width: 35rem;
+  min-height: 50rem;
+  max-width: 35rem;
+  max-height: 50rem;
+  overflow: hidden;
+  text-decoration-color: transparent;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px black;
+  opacity: 0.8;
+  transition: 250ms;
+}
+
+.cardGenre:hover {
+  opacity: 1;
+}
+
+.cardGenre > h4 {
+  margin-top: 75%;
+  background: radial-gradient(rgba(0, 0, 0, 0.85) 45%, transparent 75%);
+  padding: 3rem 4rem;
+  text-align: center;
+  color: gray;
+}
+
+@media only screen and (max-width: 430px) {
+  .cardGenre {
+    min-width: 24rem;
+    min-height: 39rem;
+    max-width: 24rem;
+    max-height: 39rem;
+  }
+  .genreList > h3 {
+    font-size: 3rem;
+    margin: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GenreLi from "./GenreLi.jsx";
+import "../assets/genreStyle.css";
 
 export default function Genres({ films, client }) {
   const [sortedFilms, setSortedFilms] = useState(false);
