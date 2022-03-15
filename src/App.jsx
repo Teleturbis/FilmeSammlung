@@ -12,6 +12,7 @@ import SearchActor from "./components/SearchActor.jsx"
 import SearchDirector from "./components/SearchDirector.jsx"
 import SearchCompany from "./components/SearchCompany.jsx"
 import SearchGenre from "./components/SearchGenre.jsx"
+import Search from "./components/Search.jsx"
 
 function App() {
   const [films, setFilms] = useState(false);
@@ -87,7 +88,7 @@ function App() {
           ></Route>
         </Route>
         <Route path="/search">
-          <Route index element={<></>}></Route>
+          <Route index element={<Search films={films} />}></Route>
           <Route
             path="/search/actors/:searchName"
             element={<SearchActor films={films} />}

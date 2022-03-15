@@ -29,6 +29,9 @@ export default function Header({ user, userLoggedIn }) {
         ) : null}
       </div>
       <nav className="headerNavbar">
+        <NavLink className="navLink" to="/search">
+          Suche
+        </NavLink>
         <NavLink className="navLink" to="/genre">
           Genre
         </NavLink>
