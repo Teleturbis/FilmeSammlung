@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap');
 
 :root {
   font-size: 62.5%; /* 62.5% */
@@ -13,12 +13,12 @@
   --bgColor: gray;
   --bgContent: white;
 
-  --comicFont: "Bangers", cursive;
-  --sciFiFont: "Faster One", cursive;
-  --horrorFont: "Nosifer", cursive;
-  --sweetFont: "Oleo Script", cursive;
-  --westernFont: "Rye", cursive;
-  --standartFont: "Staatliches", cursive;
+  --comicFont: 'Bangers', cursive;
+  --sciFiFont: 'Faster One', cursive;
+  --horrorFont: 'Nosifer', cursive;
+  --sweetFont: 'Oleo Script', cursive;
+  --westernFont: 'Rye', cursive;
+  --standartFont: 'Staatliches', cursive;
 }
 
 body {
@@ -396,7 +396,7 @@ body {
 
 .hotFilmsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-items: center;
 }
 
@@ -417,7 +417,6 @@ body {
 
 .hotTitleContainer {
   z-index: 1;
-  transform: translateY(-170px);
   background-color: black;
   opacity: 0.5;
   width: 20%;
@@ -428,9 +427,4 @@ body {
   font-size: 2rem;
   text-align: center;
   color: white;
-}
-
-.hotTitleContainer:hover {
-  transform: translateY(40px);
-  cursor: pointer;
 }
