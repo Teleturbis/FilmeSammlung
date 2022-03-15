@@ -12,24 +12,13 @@ export default function Search({ films }) {
         if (
           el.fields.director.toLowerCase().includes(searchName) ||
           el.fields.company.toLowerCase().includes(searchName) ||
-          el.fields.actors.includes(searchName) ||
-          el.fields.genres.includes(searchName) ||
+          el.fields.actors.join().toLowerCase().includes(searchName) ||
+          el.fields.genres.join().toLowerCase().includes(searchName) ||
           el.fields.title.toLowerCase().includes(searchName)
         ) {
           return el;
         } else {
-          /* el.fields.actors.map((actor) => {
-            if (actor.toLowerCase().includes(searchName)) {
-              return el;
-            } else return null;
-          });
-
-          el.fields.genres.map((genre) => {
-            if (genre.toLowerCase().includes(searchName)) {
-              return el;
-            } else return null;
-          }); */
-          return null
+          return null;
         }
       });
       console.log("temp", tempArr);
@@ -56,7 +45,7 @@ export default function Search({ films }) {
                 to={`/film/${film.sys.id}`}
                 key={index}
               >
-                <h4>{/*film.fields.title*/}</h4>
+                <h4>{film.fields.title}</h4>
               </NavLink>
             ))}
         </div>
