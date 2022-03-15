@@ -400,7 +400,7 @@ body {
   justify-items: center;
   gap: 30px;
   justify-content: center;
-  margin-top: 1%;
+  margin: 2% auto;
 }
 
 .hotNavLink {
@@ -415,26 +415,37 @@ body {
   overflow: hidden;
   border-radius: 10px;
   transition: 450ms ease-out;
+  -webkit-box-shadow: 0px 0px 19px -4px #000000;
+  box-shadow: 0px 0px 19px -4px #000000;
 }
 
 .hotCard:hover {
   transform: scale(1.05);
+  -webkit-box-shadow: 0px 5px 19px 2px #000000;
+  box-shadow: 0px 5px 19px 2px #000000;
 }
 
-.hotCard:hover .hotTitle {
-  transform: translateY(-100px);
+.hotCard:hover .card-content {
+  transform: translateY(-170px);
   opacity: 1;
 }
 
-.hotTitle {
+.card-content {
   font-size: 2.5rem;
   position: relative;
   text-align: center;
-  top: 400px;
+  top: 440px;
   padding: 30px;
   background-color: rgb(199, 71, 56);
   opacity: 0.3;
   color: white;
   transition: 1000ms;
-  height: 80px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hotPoints {
+  font-size: 1.5rem;
 }

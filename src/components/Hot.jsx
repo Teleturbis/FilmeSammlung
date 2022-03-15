@@ -27,6 +27,7 @@ function Hot({ films }) {
             >
               <div className="card-content">
                 <p className="hotTitle">{film.fields.title}</p>
+                <p className="hotPoints">Points {film.fields.voting}</p>
               </div>
             </div>
           </NavLink>
