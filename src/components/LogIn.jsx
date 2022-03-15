@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal.jsx";
 
-export default function LogIn({ client, userLoggedIn }) {
+export default function LogIn({ client, userLoggedIn, user }) {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [modal, setModal] = useState(false);
@@ -10,21 +10,28 @@ export default function LogIn({ client, userLoggedIn }) {
     client
       .getEntries({
         content_type: "user",
-        "fields.username": usernameInput,
+        "fields.username": usernameInput.toLowerCase(),
       })
       .then((response) => {
         if (
           response.items[0] &&
           response.items[0].fields.password === passwordInput
         ) {
-          userLoggedIn(usernameInput);
+          userLoggedIn(usernameInput, response.items[0].fields.uuid);
+          localStorage.setItem("loggedIn", true);
+          localStorage.setItem("userName", usernameInput);
+          localStorage.setItem("id", response.items[0].fields.uuid);
         } else if (response.items[0]) {
           window.alert("FALSCHES PASSWORT");
         }
       })
-      .catch(window.alert("User nicht gefunden"));
-      setPasswordInput("")
-      setUsernameInput("")
+      .catch((err) => window.alert("ALERT User nicht gefunden | ", err));
+    setPasswordInput("");
+    setUsernameInput("");
+  }
+
+  function handleLogOut() {
+    userLoggedIn("", "");
   }
 
   function handleRegistration() {
@@ -40,21 +47,25 @@ export default function LogIn({ client, userLoggedIn }) {
       {modal ? (
         <Modal client={client} changeModalDisplayed={changeModalDisplayed} />
       ) : null}
-      <div>
-        <input
-          type="text"
-          placeholder="Username"
-          value={usernameInput}
-          onChange={(e) => setUsernameInput(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Passwort"
-          value={passwordInput}
-          onChange={(e) => setPasswordInput(e.target.value)}
-        />
-        <input type="button" value="LogIn" onClick={() => handleLogIn()} />
-      </div>
+      {user.loggedIn ? (
+        <input type="button" value="LogOut" onClick={() => handleLogOut()} />
+      ) : (
+        <div>
+          <input
+            type="text"
+            placeholder="Username"
+            value={usernameInput}
+            onChange={(e) => setUsernameInput(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Passwort"
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+          />
+          <input type="button" value="LogIn" onClick={() => handleLogIn()} />
+        </div>
+      )}
       <input
         type="button"
         value="Registrieren"
