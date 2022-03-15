@@ -16,15 +16,17 @@ function Hot({ films }) {
     <div className="hotFilmsContainer">
       {hotFilms.length > 0 &&
         hotFilms.map((film) => (
-          <NavLink key={uuidv4()} to={`/film/${film.sys.id}`}>
+          <NavLink
+            key={uuidv4()}
+            to={`/film/${film.sys.id}`}
+            className="hotNavLink"
+          >
             <div
               className="hotCard"
               style={{ backgroundImage: `url(${film.fields.previewImage})` }}
             >
               <div className="card-content">
-                <h4 className="hotTitle">
-                  {film.fields.title} <br /> Points {film.fields.voting}
-                </h4>
+                <p className="hotTitle">{film.fields.title}</p>
               </div>
             </div>
           </NavLink>

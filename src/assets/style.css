@@ -400,15 +400,21 @@ body {
   justify-items: center;
   gap: 30px;
   justify-content: center;
+  margin-top: 1%;
+}
+
+.hotNavLink {
+  text-decoration: none;
 }
 
 .hotCard {
   height: 450px;
   width: 300px;
   background-size: contain;
-  transition: 450ms;
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
+  transition: 450ms ease-out;
 }
 
 .hotCard:hover {
@@ -416,9 +422,8 @@ body {
 }
 
 .hotCard:hover .hotTitle {
-  transform: translateY(-120px);
+  transform: translateY(-100px);
   opacity: 1;
-  font-size: 2.5rem;
 }
 
 .hotTitle {
@@ -427,10 +432,9 @@ body {
   text-align: center;
   top: 400px;
   padding: 30px;
-  background-color: red;
+  background-color: rgb(199, 71, 56);
   opacity: 0.3;
   color: white;
   transition: 1000ms;
-  height: 100px;
-  text-decoration: none;
+  height: 80px;
 }
