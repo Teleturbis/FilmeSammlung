@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Trailer from "./Trailer.jsx";
 import "../assets/filmItemsStyle.css";
 import AddComment from "./AddComment.jsx";
+import Actors from "./Actors.jsx";
 
 export default function FilmDetails({ films, user }) {
   const [filmDetails, setFilmDetails] = useState(false);
@@ -50,11 +51,15 @@ export default function FilmDetails({ films, user }) {
                 <li>
                   <h3 style={{ margin: 0 }}>Schauspieler:</h3>
                 </li>
-                {filmDetails.fields.actors.map((el, index) => (
-                  <p className="ulFilmDetailsParagraph" key={index}>
-                    {el}
-                  </p>
-                ))}
+                {filmDetails.fields.actors.length > 10 ? (
+                  <Actors actors={filmDetails.fields.actors} />
+                ) : (
+                  filmDetails.fields.actors.map((el, index) => (
+                    <p className="ulFilmDetailsParagraph" key={index}>
+                      {el}
+                    </p>
+                  ))
+                )}
               </ul>
               <ul>
                 <li>
@@ -99,7 +104,11 @@ export default function FilmDetails({ films, user }) {
             </ul>
           </div>
           <div>
-            <AddComment entryId={filmDetails.sys.id} user={user} comments={filmDetails.fields.comments} />
+            <AddComment
+              entryId={filmDetails.sys.id}
+              user={user}
+              comments={filmDetails.fields.comments}
+            />
           </div>
         </div>
       )}

@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
 
+:root{
+
+  --buttonColor: rgb(156, 156, 156);
+  --buttonColorHover: rgba(156, 156, 156, 0.2);
+  --buttonColorClick: rgb(175, 175, 175);
+
+}
+
 .filmDetails {
   font-family: "Passion One", cursive;
 }
@@ -62,6 +70,12 @@
 .ulFilmDetailsParagraph:hover {
   background-color: rgba(128, 128, 128, 0.5);
   border: 1px solid rgba(128, 128, 128, 0.75);
+}
+
+.showMoreActors{
+
+  background-color: var(--buttonColor);
+
 }
 
 .userAddComment {
