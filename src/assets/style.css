@@ -395,36 +395,42 @@ body {
 /**********************************/
 
 .hotFilmsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   justify-items: center;
+  gap: 30px;
+  justify-content: center;
 }
 
 .hotCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 85%;
-  margin: 2%;
-}
-
-.hotPreviewImage {
-  width: 300px;
   height: 450px;
-  border-radius: 10px;
+  width: 300px;
+  background-size: contain;
+  transition: 450ms;
+  position: relative;
+  overflow: hidden;
 }
 
-.hotTitleContainer {
-  z-index: 1;
-  background-color: black;
-  opacity: 0.5;
-  width: 20%;
-  height: 180px;
+.hotCard:hover {
+  transform: scale(1.05);
+}
+
+.hotCard:hover .hotTitle {
+  transform: translateY(-120px);
+  opacity: 1;
+  font-size: 2.5rem;
 }
 
 .hotTitle {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  position: relative;
   text-align: center;
+  top: 400px;
+  padding: 30px;
+  background-color: red;
+  opacity: 0.3;
   color: white;
+  transition: 1000ms;
+  height: 100px;
+  text-decoration: none;
 }

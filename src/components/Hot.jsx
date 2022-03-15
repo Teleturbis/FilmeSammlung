@@ -16,19 +16,18 @@ function Hot({ films }) {
     <div className="hotFilmsContainer">
       {hotFilms.length > 0 &&
         hotFilms.map((film) => (
-          <div key={uuidv4()} className="hotCard">
-            <div className="hotTitleContainer">
-              <h4 className="hotTitle">{film.fields.title}</h4>
+          <NavLink key={uuidv4()} to={`/film/${film.sys.id}`}>
+            <div
+              className="hotCard"
+              style={{ backgroundImage: `url(${film.fields.previewImage})` }}
+            >
+              <div className="card-content">
+                <h4 className="hotTitle">
+                  {film.fields.title} <br /> Points {film.fields.voting}
+                </h4>
+              </div>
             </div>
-            <NavLink to="">
-              <img
-                className="hotPreviewImage"
-                src={film.fields.previewImage}
-                alt="previewImage"
-              />
-            </NavLink>
-            <p>Points {film.fields.voting}</p>
-          </div>
+          </NavLink>
         ))}
     </div>
   );
