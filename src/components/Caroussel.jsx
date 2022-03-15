@@ -12,6 +12,13 @@ function Caroussel({ randomFilms }) {
   const [pic2, setPic2] = useState();
   const [pic3, setPic3] = useState();
 
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      previousPicture();
+    }, 3000);
+    return () => clearInterval(slideInterval);
+  }, [indexNumber]);
+
   const nextPicture = () => {
     if (indexNumber === 2) {
       setIndexNumber(0);
