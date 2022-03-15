@@ -1,7 +1,14 @@
 import React from "react";
 import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 
-export default function Header({ user }) {
+export default function Header({ user, userLoggedIn }) {
+  function handleLogOut() {
+    localStorage.setItem("loggedIn", false);
+    localStorage.setItem("userName", "");
+    localStorage.setItem("id", "");
+    userLoggedIn("", "");
+  }
+
   return (
     <div className="headerDiv">
       <div className="headlineDiv">
@@ -10,7 +17,16 @@ export default function Header({ user }) {
             The Collector
           </NavLink>
         </h1>
-        {user.loggedIn ? <p>{user.userName}</p> : null}
+        {user.loggedIn ? (
+          <div className="userNameHeader">
+            <input
+              type="button"
+              value="LogOut"
+              onClick={() => handleLogOut()}
+            />
+            <p>{user.userName}</p>
+          </div>
+        ) : null}
       </div>
       <nav className="headerNavbar">
         <NavLink className="navLink" to="/genre">
