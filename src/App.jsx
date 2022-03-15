@@ -8,15 +8,12 @@ import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
 import FilmDetail from './components/FilmDetail.jsx';
 import LogIn from './components/LogIn.jsx';
-<<<<<<< HEAD
 import Hot from './components/Hot';
-=======
 import SearchActor from './components/SearchActor.jsx';
 import SearchDirector from './components/SearchDirector.jsx';
 import SearchCompany from './components/SearchCompany.jsx';
 import SearchGenre from './components/SearchGenre.jsx';
 import Main from './components/general/Main.jsx';
->>>>>>> main
 
 function App() {
   const [films, setFilms] = useState(false);
