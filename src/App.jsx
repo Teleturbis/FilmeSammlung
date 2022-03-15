@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as Contentful from "contentful";
 import Header from "./components/general/Header.jsx";
@@ -8,6 +8,10 @@ import Caroussel from "./components/Caroussel.jsx";
 import Genres from "./components/Genres.jsx";
 import FilmDetail from "./components/FilmDetail.jsx";
 import LogIn from "./components/LogIn.jsx";
+import SearchActor from "./components/SearchActor.jsx"
+import SearchDirector from "./components/SearchDirector.jsx"
+import SearchCompany from "./components/SearchCompany.jsx"
+import SearchGenre from "./components/SearchGenre.jsx"
 
 function App() {
   const [films, setFilms] = useState(false);
@@ -38,7 +42,7 @@ function App() {
         id: localStorage.getItem("id"),
       });
     } else {
-      setUser({ loggedIn: false, userName: "", id: "" })
+      setUser({ loggedIn: false, userName: "", id: "" });
     }
   }, []);
 
@@ -81,6 +85,25 @@ function App() {
               <LogIn client={client} userLoggedIn={userLoggedIn} user={user} />
             }
           ></Route>
+        </Route>
+        <Route path="/search">
+          <Route index element={<></>}></Route>
+          <Route
+            path="/search/actors/:searchName"
+            element={<SearchActor films={films} />}
+          />
+          <Route
+            path="/search/director/:searchName"
+            element={<SearchDirector films={films} />}
+          />
+          <Route
+            path="/search/company/:searchName"
+            element={<SearchCompany films={films} />}
+          />
+          <Route
+            path="/search/genre/:searchName"
+            element={<SearchGenre films={films} />}
+          />
         </Route>
         <Route
           path="/genre"

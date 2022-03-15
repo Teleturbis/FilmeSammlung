@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Trailer from "./Trailer.jsx";
 import "../assets/filmItemsStyle.css";
 import AddComment from "./AddComment.jsx";
 import Actors from "./Actors.jsx";
+import { NavLink, useParams } from "react-router-dom";
 
 export default function FilmDetails({ films, user }) {
   const [filmDetails, setFilmDetails] = useState(false);
@@ -42,9 +42,10 @@ export default function FilmDetails({ films, user }) {
                   <h3 style={{ margin: 0 }}>Genre:</h3>
                 </li>
                 {filmDetails.fields.genres.map((el, index) => (
-                  <p className="ulFilmDetailsParagraph" key={index}>
+                  <NavLink
+                  to={`/search/genre/${el}`} className="ulFilmDetailsParagraph" key={index}>
                     {el}
-                  </p>
+                  </NavLink>
                 ))}
               </ul>
               <ul className="ulFilmDetailsActors">
@@ -55,9 +56,13 @@ export default function FilmDetails({ films, user }) {
                   <Actors actors={filmDetails.fields.actors} />
                 ) : (
                   filmDetails.fields.actors.map((el, index) => (
-                    <p className="ulFilmDetailsParagraph" key={index}>
+                    <NavLink
+                      to={`/search/actors/${el}`}
+                      className="ulFilmDetailsParagraph"
+                      key={index}
+                    >
                       {el}
-                    </p>
+                    </NavLink>
                   ))
                 )}
               </ul>
@@ -65,9 +70,10 @@ export default function FilmDetails({ films, user }) {
                 <li>
                   <h3 style={{ margin: 0 }}>Company:</h3>
                 </li>
-                <p className="ulFilmDetailsParagraph">
+                <NavLink
+                      to={`/search/company/${filmDetails.fields.company}`} className="ulFilmDetailsParagraph">
                   {filmDetails.fields.company}
-                </p>
+                </NavLink>
               </ul>
               <ul>
                 <li>
@@ -81,9 +87,10 @@ export default function FilmDetails({ films, user }) {
                 <li>
                   <h3 style={{ margin: 0 }}>Director:</h3>
                 </li>
-                <p className="ulFilmDetailsParagraph">
+                <NavLink
+                      to={`/search/director/${filmDetails.fields.director}`} className="ulFilmDetailsParagraph">
                   {filmDetails.fields.director}
-                </p>
+                </NavLink>
               </ul>
               <ul>
                 <li>

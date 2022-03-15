@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Actors({ actors }) {
   const [showAll, setShowAll] = useState(false);
@@ -8,9 +9,13 @@ export default function Actors({ actors }) {
     let tempArr = [];
     for (let i = 0; i < 9; i++) {
       tempArr[i] = (
-        <p className="ulFilmDetailsParagraph" key={i}>
+        <NavLink
+          to={`/search/${actors[i]}`}
+          className="ulFilmDetailsParagraph"
+          key={i}
+        >
           {actors[i]}
-        </p>
+        </NavLink>
       );
     }
     tempArr.push(
@@ -29,9 +34,13 @@ export default function Actors({ actors }) {
     <div>
       {showAll
         ? actors.map((el, index) => (
-            <p className="ulFilmDetailsParagraph" key={index}>
+            <NavLink
+              to={`/search/actors/${el}`}
+              className="ulFilmDetailsParagraph"
+              key={index}
+            >
               {el}
-            </p>
+            </NavLink>
           ))
         : showFirstTen}
     </div>
