@@ -8,7 +8,7 @@ function Hot({ films }) {
 
   useEffect(() => {
     if (films.length > 0) {
-      setHotFilms(films.filter((film) => film.fields.voting > 3000));
+      setHotFilms(films.filter((film) => film.fields.voting > 1000));
     }
   }, [films]);
 
@@ -17,7 +17,9 @@ function Hot({ films }) {
       {hotFilms.length > 0 &&
         hotFilms.map((film) => (
           <div key={uuidv4()} className="hotCard">
-            <h4 className="hotTitle">{film.fields.title}</h4>
+            <div className="hotTitleContainer">
+              <h4 className="hotTitle">{film.fields.title}</h4>
+            </div>
             <NavLink to="">
               <img
                 className="hotPreviewImage"
