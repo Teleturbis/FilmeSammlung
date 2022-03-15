@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
 
 :root {
   font-size: 62.5%; /* 62.5% */
@@ -6,15 +6,19 @@
   --textColor: rgb(31, 31, 31);
   --textColorHover: rgba(31, 31, 31, 0.5);
 
+  --buttonColor: rgb(156, 156, 156);
+  --buttonColorHover: rgba(156, 156, 156, 0.2);
+  --buttonColorClick: rgb(175, 175, 175);
+
   --bgColor: gray;
   --bgContent: white;
 
-  --comicFont: 'Bangers', cursive;
-  --sciFiFont: 'Faster One', cursive;
-  --horrorFont: 'Nosifer', cursive;
-  --sweetFont: 'Oleo Script', cursive;
-  --westernFont: 'Rye', cursive;
-  --standartFont: 'Staatliches', cursive;
+  --comicFont: "Bangers", cursive;
+  --sciFiFont: "Faster One", cursive;
+  --horrorFont: "Nosifer", cursive;
+  --sweetFont: "Oleo Script", cursive;
+  --westernFont: "Rye", cursive;
+  --standartFont: "Staatliches", cursive;
 }
 
 body {
@@ -77,7 +81,7 @@ body {
 }
 
 .navLink:hover {
-  background-color: rgb(156, 156, 156);
+  background-color: var(--buttonColor);
   box-shadow: inset 0 0 5px var(--textColorHover);
 }
 
@@ -88,6 +92,48 @@ body {
 .active:hover {
   box-shadow: none;
   cursor: default;
+}
+
+.userNameHeader {
+  width: 30rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.userNameHeader > p {
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.userNameHeader > input {
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+
+  padding: 0.5rem 1rem;
+  width: 15rem;
+  margin-top: 1rem;
+
+  background-color: var(--buttonColorHover);
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+
+  transition: 150ms;
+}
+
+.userNameHeader > input:hover {
+  letter-spacing: 0.7rem;
+  background-color: var(--buttonColor);
+}
+
+.userNameHeader > input:active {
+  letter-spacing: 0.25rem;
+  background-color: var(--buttonColorClick);
 }
 
 /**********************************/
@@ -139,27 +185,62 @@ body {
   text-shadow: 0 0 5px var(--textColorHover);
 }
 
-.cardGenre {
-  display: inline-block;
-  margin: 1rem 1rem;
+/**********************************/
+/*    ***       MODAL     ***     */
+/**********************************/
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  min-width: 35rem;
-  min-height: 50rem;
-  max-width: 35rem;
-  max-height: 50rem;
-  overflow: hidden;
-  text-decoration-color: transparent;
-  border-radius: 1rem;
-  box-shadow: 0 0 5px black;
-  opacity: 0.8;
-  transition: 250ms;
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
-.cardGenre:hover {
-  opacity: 1;
+.innerModal {
+  background-color: var(--bgContent);
+  width: fit-content;
+  height: 35%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalElement {
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 80%;
+  padding: 1rem 2rem;
+
+  border-radius: 1rem;
+  border: 1px solid var(--textColor);
+
+  font-family: var(--standartFont);
+  letter-spacing: 0.25rem;
+  font-size: 2rem;
+}
+
+.modalBtn {
+  width: 90%;
+  background-color: rgb(221, 150, 150);
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+.modalBtn:hover {
+  letter-spacing: 0.5rem;
+  background-color: rgb(221, 127, 127);
+}
+
+.modalBtn:active {
+  letter-spacing: 0.05rem;
+  background-color: rgb(228, 91, 91);
 }
 
 @media only screen and (max-width: 430px) {

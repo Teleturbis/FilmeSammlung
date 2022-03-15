@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import GenreLi from './GenreLi.jsx';
+import React, { useState, useEffect } from "react";
+import GenreLi from "./GenreLi.jsx";
+import "../assets/genreStyle.css";
 
 export default function Genres({ films, client }) {
   const [sortedFilms, setSortedFilms] = useState(false);
@@ -7,7 +8,7 @@ export default function Genres({ films, client }) {
   const [genres, setGenres] = useState(false);
 
   useEffect(async () => {
-    let fetching = await client.getEntries({ content_type: 'genres' });
+    let fetching = await client.getEntries({ content_type: "genres" });
     setGenresArr(fetching.items);
   }, []);
 
@@ -18,10 +19,7 @@ export default function Genres({ films, client }) {
     }
   }, [genresArr]);
 
-  useEffect(() => console.log('films: ', films), [films]);
-
   useEffect(() => {
-    console.log('vor Sortieren', genres);
     if (films) {
       let arr = [];
       for (let i = 0; i < genres.length; i++) {
@@ -30,8 +28,6 @@ export default function Genres({ films, client }) {
       setSortedFilms(arr);
     }
   }, [films, genres]);
-
-  useEffect(() => console.log('Sortiert: ', sortedFilms), [sortedFilms]);
 
   return (
     <div>
