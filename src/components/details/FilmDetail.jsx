@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Trailer from "./Trailer.jsx";
-import "../assets/filmItemsStyle.css";
+import "../../assets/filmItemsStyle.css";
 import AddComment from "./AddComment.jsx";
 import Actors from "../search/Actors.jsx";
 import { NavLink, useParams } from "react-router-dom";
