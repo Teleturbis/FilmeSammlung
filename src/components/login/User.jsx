@@ -169,21 +169,21 @@ export default function User({ user }) {
 
       <div className="chatHistory">
         <div className="prevMessages">{messageHistory && messageHistory}</div>
-      </div>
 
-      <div className="chatUserInputDiv">
-        <textarea
-          className="chatUserInput"
-          placeholder="Neue Nachricht schreiben!"
-          onChange={(e) => setUserInput(e.target.value)}
-          value={userInput}
-        ></textarea>
-        <input
-          type="button"
-          value="Senden"
-          className="chatUserSendBtn"
-          onClick={() => handleSendMessage()}
-        />
+        <div className="chatUserInputDiv">
+          <textarea
+            className="chatUserInput"
+            placeholder="Neue Nachricht schreiben!"
+            onChange={(e) => setUserInput(e.target.value)}
+            value={userInput}
+          ></textarea>
+          <input
+            type="button"
+            value="Senden"
+            className="chatUserSendBtn"
+            onClick={() => handleSendMessage()}
+          />
+        </div>
       </div>
     </div>
   );
