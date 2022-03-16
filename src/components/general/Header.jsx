@@ -44,9 +44,9 @@ export default function Header({ user, userLoggedIn }) {
         <NavLink className="navLink" to="/hot">
           Hot
         </NavLink>
-        <NavLink className="navLink" to="/login">
+        {user.loggedIn ? <NavLink className="navLink" to="/user">Mein Bereich</NavLink> : <NavLink className="navLink" to="/user/login">
           LogIn
-        </NavLink>
+        </NavLink>}
       </nav>
     </div>
   );
