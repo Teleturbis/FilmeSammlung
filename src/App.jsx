@@ -6,13 +6,13 @@ import Footer from './components/general/Footer.jsx';
 import './assets/style.css';
 import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
-import FilmDetail from './components/FilmDetail.jsx';
-import LogIn from './components/LogIn.jsx';
+import FilmDetail from './components/details/FilmDetail.jsx';
+import LogIn from './components/login/LogIn.jsx';
 import SearchActor from './components/SearchActor.jsx';
 import SearchDirector from './components/SearchDirector.jsx';
 import SearchCompany from './components/SearchCompany.jsx';
 import SearchGenre from './components/SearchGenre.jsx';
-import Search from "./components/Search.jsx"
+import Search from "./components/search/Search.jsx"
 import Main from './components/general/Main.jsx';
 
 function App() {

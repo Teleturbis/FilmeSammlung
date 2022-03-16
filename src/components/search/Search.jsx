@@ -21,7 +21,6 @@ export default function Search({ films }) {
           return null;
         }
       });
-      console.log("temp", tempArr);
       setSearchResult(tempArr.filter((el) => el !== null));
     }
   }
@@ -38,12 +37,9 @@ export default function Search({ films }) {
           return null;
         }
       });
-      console.log("temp", tempArr);
       setSearchResult(tempArr.filter((el) => el !== null));
     }
   }
-
-  console.log("SEARCH", searchResult);
 
   return (
     <div>
