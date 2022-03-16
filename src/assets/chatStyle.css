@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Passion+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
+
+:root {
+  font-size: 62.5%; /* 62.5% */
+
+  --textColor: rgb(20, 20, 20);
+  --textColorHover: rgba(31, 31, 31, 0.5);
+
+  --buttonColor: rgb(156, 156, 156);
+  --buttonColorHover: rgba(156, 156, 156, 0.2);
+  --buttonColorClick: rgb(175, 175, 175);
+
+  --bgColor: gray;
+  --bgContent: white;
+
+  --comicFont: "Bangers", cursive;
+  --sciFiFont: "Faster One", cursive;
+  --horrorFont: "Nosifer", cursive;
+  --sweetFont: "Oleo Script", cursive;
+  --westernFont: "Rye", cursive;
+  --standartFont: "Staatliches", cursive;
+  --chatFont: "Passion One", cursive;
+}
+
+.chatMainDiv {
+  display: flex;
+
+  height: 70vh;
+}
+
+/**********************************/
+/*    ***     CONTACTS    ***     */
+/**********************************/
+
+.contactsDiv {
+  width: 14.3%;
+  height: 100%;
+
+  background-color: var(--bgColor);
+
+  overflow-y: scroll;
+  direction: rtl;
+}
+
+.contact {
+  background-color: var(--buttonColor);
+
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+
+  width: 80%;
+  margin: 0.25rem auto;
+  text-align: center;
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+
+  transition: 150ms;
+
+  font-family: var(--standartFont);
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.contact:hover {
+  letter-spacing: 0.7rem;
+  background-color: var(--buttonColor);
+}
+
+.contact:active {
+  letter-spacing: 0.25rem;
+  background-color: var(--buttonColorClick);
+}
+
+/**********************************/
+/*    ***      CHAT       ***     */
+/**********************************/
+
+.chatHistory {
+  width: 85%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.prevMessages {
+  height: 90%;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.message {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  font-family: var(--chatFont);
+}
+
+.timeStamp {
+  margin: 0;
+
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  font-family: var(--chatFont);
+}
+
+.chatUserInputDiv {
+  background-color: rgb(83, 83, 83);
+
+  padding: 0.5rem 0;
+
+  height: 10%;
+
+  display: flex;
+}
+
+.incomingMessage {
+  margin: 2rem 1rem;
+  margin-right: 25%;
+  padding: 1rem;
+
+  border-radius: 2rem;
+
+  background-color: rgb(105, 105, 187);
+}
+
+.outgoingMessage {
+  margin: 2rem 1rem;
+  margin-left: 25%;
+  padding: 1rem;
+
+  border-radius: 2rem;
+
+  background-color: rgb(187, 105, 105);
+}
+
+.chatUserInput {
+  resize: none;
+  width: 90%;
+
+  margin-left: 0.5rem;
+
+  display: block;
+
+  background-color: rgb(226, 226, 226);
+
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+
+  font-family: var(--chatFont);
+  font-size: 2rem;
+  color: rgb(39, 39, 39);
+}
+
+.chatUserSendBtn {
+  width: 7.5%;
+  margin: 0 auto;
+
+  background-color: var(--buttonColor);
+
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+
+  transition: 150ms;
+
+  font-family: var(--standartFont);
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+
+.chatUserSendBtn:hover {
+  letter-spacing: 0.7rem;
+  background-color: var(--buttonColor);
+}
+
+.chatUserSendBtn:active {
+  letter-spacing: 0.25rem;
+  background-color: var(--buttonColorClick);
+}

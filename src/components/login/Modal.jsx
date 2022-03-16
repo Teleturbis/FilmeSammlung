@@ -6,7 +6,7 @@ export default function Modal({ changeModalDisplayed }) {
   const contentful = require("contentful-management");
 
   const client = contentful.createClient({
-    accessToken: "CFPAT-pgfxlbHoIVQa2aR_EVhdi-52Hcgeu9hACk-DM-fW0Ow",
+    accessToken: "CFPAT-S5oAg2kMuovvHDIwpQby-X6UjykGBnxmkP1y5lPvpKM",
   });
 
   const getClient = Contentful.createClient({
@@ -30,7 +30,7 @@ export default function Modal({ changeModalDisplayed }) {
             ? window.alert("Username ist bereits vergeben!")
             : createNewUser();
         })
-        .catch((err) => console.error("Userabfrage: ",err));
+        .catch((err) => console.error("Userabfrage: ", err));
     } else {
       window.alert("Bitte Username eingeben!");
     }
@@ -38,6 +38,7 @@ export default function Modal({ changeModalDisplayed }) {
 
   function createNewUser() {
     if (passwordInput !== "") {
+      const id = uuidv4();
       client
         .getSpace("5o4kejg5nlut")
         .then((space) => space.getEnvironment("master"))
@@ -46,12 +47,28 @@ export default function Modal({ changeModalDisplayed }) {
             fields: {
               username: { "en-US": usernameInput },
               password: { "en-US": passwordInput },
-              uuid: { "en-US": uuidv4() },
+              uuid: { "en-US": id },
             },
           })
         )
         .then((entry) => entry.publish())
-        .catch(err => console.error("upload new User", err));
+        .catch((err) => console.error("upload new User", err));
+
+      setTimeout(() => {
+        client
+          .getSpace("5o4kejg5nlut")
+          .then((space) => space.getEnvironment("master"))
+          .then((environment) =>
+            environment.createEntry("listOfUsernamens", {
+              fields: {
+                userName: { "en-US": usernameInput },
+                userId: { "en-US": id },
+              },
+            })
+          )
+          .then((entry) => entry.publish());
+      }, 2500);
+
       setPasswordInput("");
       setUsernameInput("");
       changeModalDisplayed();
