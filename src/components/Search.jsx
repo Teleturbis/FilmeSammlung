@@ -10,11 +10,11 @@ export default function Search({ films }) {
     if (films) {
       tempArr = films.map((el) => {
         if (
-          el.fields.director.toLowerCase().includes(searchName) ||
-          el.fields.company.toLowerCase().includes(searchName) ||
-          el.fields.actors.join().toLowerCase().includes(searchName) ||
-          el.fields.genres.join().toLowerCase().includes(searchName) ||
-          el.fields.title.toLowerCase().includes(searchName)
+          el.fields.director.toLowerCase().includes(searchName.toLowerCase()) ||
+          el.fields.company.toLowerCase().includes(searchName.toLowerCase()) ||
+          el.fields.actors.join().toLowerCase().includes(searchName.toLowerCase()) ||
+          el.fields.genres.join().toLowerCase().includes(searchName.toLowerCase()) ||
+          el.fields.title.toLowerCase().includes(searchName.toLowerCase())
         ) {
           return el;
         } else {
@@ -31,7 +31,7 @@ export default function Search({ films }) {
     if (films) {
       tempArr = films.map((el) => {
         if (
-          el.fields.description.toLowerCase().includes(searchName)
+          el.fields.description.toLowerCase().includes(searchName.toLowerCase())
         ) {
           return el;
         } else {
@@ -53,7 +53,7 @@ export default function Search({ films }) {
         <input type="button" value="In Beschreibungen suchen!" onClick={() => handleSearchDescription()} />
       </div>
       <div className="genreList">
-        <h3>{searchName}</h3>
+        <h3>Suche nach:<br/>{searchName}</h3>
         <div className="filmsDiv">
           {searchResult &&
             searchResult.map((film, index) => (
