@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FilmeSammlung/static/css/main.985c1e87.css",
+    "main.js": "/FilmeSammlung/static/js/main.c1b0da4a.js",
+    "index.html": "/FilmeSammlung/index.html",
+    "main.985c1e87.css.map": "/FilmeSammlung/static/css/main.985c1e87.css.map",
+    "main.c1b0da4a.js.map": "/FilmeSammlung/static/js/main.c1b0da4a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.985c1e87.css",
+    "static/js/main.c1b0da4a.js"
+  ]
+}
