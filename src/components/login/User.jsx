@@ -26,8 +26,16 @@ export default function User({ user }) {
       content_type: "listOfUsernamens",
     });
 
-    setUsers(fetching.items);
+    let tempArr = await fetching.items.filter(
+      (contact) => contact.fields.userName !== user.userName
+    );
+
+    console.log("userid:", user.id);
+
+    setUsers(tempArr);
   }
+
+  console.log("partnerid", partnerId);
 
   async function fetchedMessages(id) {
     let fetchedMessages = await getClient.getEntries({
@@ -146,7 +154,7 @@ export default function User({ user }) {
     setTimeout(() => {
       fetchedMessages();
     }, 2500);
-  }, []);
+  }, [user]);
 
   console.log("USERS", users);
   console.log("MESSAGES", messages);
@@ -155,16 +163,18 @@ export default function User({ user }) {
     <div className="chatMainDiv">
       <div className="contactsDiv">
         {users &&
-          users.map((contact) => ( contact.fields.userId === user.id ? null :
-            <div
-              key={contact.fields.userId}
-              className="contact"
-              style={{ backgroundColor: null }}
-              onClick={() => handleContactClick(contact.fields.userId)}
-            >
-              {contact.fields.userName}
-            </div>
-          ))}
+          users.map((contact) =>
+            contact.fields.userId === user.id ? null : (
+              <div
+                key={contact.fields.userId}
+                className="contact"
+                style={{ backgroundColor: null }}
+                onClick={() => handleContactClick(contact.fields.userId)}
+              >
+                {contact.fields.userName}
+              </div>
+            )
+          )}
       </div>
 
       <div className="chatHistory">
