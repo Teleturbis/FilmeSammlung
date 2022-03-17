@@ -6,17 +6,18 @@ import {
 } from 'react-icons/md';
 
 function Caroussel({ randomFilms }) {
-  // console.log(randomFilms[0].fields.title);
-  // console.log(randomFilms[0].fields.previewImage.fields.file.url);
-
   let [indexNumber, setIndexNumber] = useState(0);
 
   const [pic1, setPic1] = useState();
   const [pic2, setPic2] = useState();
   const [pic3, setPic3] = useState();
 
-  console.log(indexNumber, 'indexNumber');
-  console.log(randomFilms, 'randomFilms');
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      previousPicture();
+    }, 3000);
+    return () => clearInterval(slideInterval);
+  }, [indexNumber]);
 
   const nextPicture = () => {
     if (indexNumber === 2) {
