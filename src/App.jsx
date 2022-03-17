@@ -13,6 +13,8 @@ import FilmDetail from "./components/details/FilmDetail.jsx";
 import LogIn from "./components/login/LogIn.jsx";
 import User from "./components/login/User.jsx";
 
+import Hot from "./components/Hot";
+
 import SearchActor from "./components/search/SearchActor.jsx";
 import SearchDirector from "./components/search/SearchDirector.jsx";
 import SearchCompany from "./components/search/SearchCompany.jsx";
@@ -81,6 +83,7 @@ function App() {
       <Header user={user} userLoggedIn={userLoggedIn} />
       <div>{films && console.log(films)}</div>
       <Routes>
+        <Route path="hot" element={<Hot films={films} />}></Route>
         <Route path="/user">
           <Route index element={<User client={client} user={user} />}></Route>
           <Route
@@ -115,7 +118,10 @@ function App() {
           path="/genre"
           element={<Genres client={client} films={films} />}
         />
-        <Route path="/" element={<Main randomFilms={randomFilms} />} />
+        <Route
+          path="/"
+          element={<Main randomFilms={randomFilms} client={client} />}
+        />
 
         <Route
           path="/film/:filmid"
