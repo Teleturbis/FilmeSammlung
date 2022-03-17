@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/FilmeSammlung/static/css/main.985c1e87.css",
-    "main.js": "/FilmeSammlung/static/js/main.fdae7a9e.js",
+    "main.js": "/FilmeSammlung/static/js/main.2cdf029a.js",
     "index.html": "/FilmeSammlung/index.html",
     "main.985c1e87.css.map": "/FilmeSammlung/static/css/main.985c1e87.css.map",
-    "main.fdae7a9e.js.map": "/FilmeSammlung/static/js/main.fdae7a9e.js.map"
+    "main.2cdf029a.js.map": "/FilmeSammlung/static/js/main.2cdf029a.js.map"
   },
   "entrypoints": [
     "static/css/main.985c1e87.css",
-    "static/js/main.fdae7a9e.js"
+    "static/js/main.2cdf029a.js"
   ]
 }
