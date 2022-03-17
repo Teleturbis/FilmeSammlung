@@ -72,7 +72,7 @@ function Caroussel({ randomFilms }) {
   }
 
   return (
-    <div className="carousselContainer">
+    <div className="carousselContainer" style={{margin: "0 auto"}}>
       <h3 className="carousselTitle">Filme des Tages</h3>
       <div className="carousselFrame">
         <button className="carousselButton" onClick={() => previousPicture()}>
