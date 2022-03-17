@@ -8,7 +8,6 @@ function Main({ randomFilms, client }) {
     <div className="mainContainer">
       <News />
       <Caroussel randomFilms={randomFilms} />
-
       <InTheaters client={client} />
     </div>
   );
