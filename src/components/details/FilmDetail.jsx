@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Trailer from "./Trailer.jsx";
-import "../assets/filmItemsStyle.css";
+import "../../assets/filmItemsStyle.css";
 import AddComment from "./AddComment.jsx";
-import Actors from "./Actors.jsx";
+import Actors from "../search/Actors.jsx";
 import { NavLink, useParams } from "react-router-dom";
 
 export default function FilmDetails({ films, user }) {
@@ -22,31 +22,33 @@ export default function FilmDetails({ films, user }) {
     <div>
       {filmDetails && (
         <div className="filmDetails">
-          <div>
-            <Trailer
-              className="trailerDiv"
-              filmName={filmDetails.fields.title}
-            />
+          <div className="trailerDiv">
+            <Trailer className="trailer" filmName={filmDetails.fields.title} />
             <div className="filmitemHeaderDiv">
               <div>
                 <h2>{filmDetails.fields.title}</h2>
                 <p>{filmDetails.fields.description}</p>
               </div>
-              <img src={filmDetails.fields.previewImage} alt="Film Image" />
+              <img className="filmImg" src={filmDetails.fields.previewImage} alt="Film Image" />
             </div>
           </div>
-          <div>
-            <ul style={{ display: "flex" }}>
+          <div className="listDiv">
+            <ul className="filmDetailsList">
               <ul className="ulFilmDetailsGenres">
                 <li>
                   <h3 style={{ margin: 0 }}>Genre:</h3>
                 </li>
-                {filmDetails.fields.genres.map((el, index) => (
-                  <NavLink
-                  to={`/search/genre/${el}`} className="ulFilmDetailsParagraph" key={index}>
-                    {el}
-                  </NavLink>
-                ))}
+                <div>
+                  {filmDetails.fields.genres.map((el, index) => (
+                    <NavLink
+                      to={`/search/genre/${el}`}
+                      className="ulFilmDetailsParagraph"
+                      key={index}
+                    >
+                      {el}
+                    </NavLink>
+                  ))}
+                </div>
               </ul>
               <ul className="ulFilmDetailsActors">
                 <li>
@@ -66,47 +68,61 @@ export default function FilmDetails({ films, user }) {
                   ))
                 )}
               </ul>
-              <ul>
+              <ul className="ulFilmDetailsCompany">
                 <li>
                   <h3 style={{ margin: 0 }}>Company:</h3>
                 </li>
-                <NavLink
-                      to={`/search/company/${filmDetails.fields.company}`} className="ulFilmDetailsParagraph">
-                  {filmDetails.fields.company}
-                </NavLink>
+                <div>
+                  <NavLink
+                    to={`/search/company/${filmDetails.fields.company}`}
+                    className="ulFilmDetailsParagraph"
+                  >
+                    {filmDetails.fields.company}
+                  </NavLink>
+                </div>
               </ul>
-              <ul>
+              <ul className="ulFilmDetailsPublished">
                 <li>
                   <h3 style={{ margin: 0 }}>Veröffentlicht:</h3>
                 </li>
-                <p className="ulFilmDetailsParagraphNoHover">
-                  {filmDetails.fields.date}
-                </p>
+                <div>
+                  <p className="ulFilmDetailsParagraphNoHover">
+                    {filmDetails.fields.date}
+                  </p>
+                </div>
               </ul>
-              <ul>
+              <ul className="ulFilmDetailsDirector">
                 <li>
                   <h3 style={{ margin: 0 }}>Director:</h3>
                 </li>
-                <NavLink
-                      to={`/search/director/${filmDetails.fields.director}`} className="ulFilmDetailsParagraph">
-                  {filmDetails.fields.director}
-                </NavLink>
+                <div>
+                  <NavLink
+                    to={`/search/director/${filmDetails.fields.director}`}
+                    className="ulFilmDetailsParagraph"
+                  >
+                    {filmDetails.fields.director}
+                  </NavLink>
+                </div>
               </ul>
-              <ul>
+              <ul className="ulFilmDetailsLength">
                 <li>
                   <h3 style={{ margin: 0 }}>Länge:</h3>
                 </li>
-                <p className="ulFilmDetailsParagraphNoHover">
-                  {filmDetails.fields.lengthInMin} min
-                </p>
+                <div>
+                  <p className="ulFilmDetailsParagraphNoHover">
+                    {filmDetails.fields.lengthInMin} min
+                  </p>
+                </div>
               </ul>
-              <ul>
+              <ul className="ulFilmDetailsLikes">
                 <li>
                   <h3 style={{ margin: 0 }}>Likes:</h3>
                 </li>
-                <p className="ulFilmDetailsParagraphNoHover">
-                  {filmDetails.fields.voting}
-                </p>
+                <div>
+                  <p className="ulFilmDetailsParagraphNoHover">
+                    {filmDetails.fields.voting}
+                  </p>
+                </div>
               </ul>
             </ul>
           </div>

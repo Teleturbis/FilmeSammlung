@@ -50,27 +50,35 @@ export default function LogIn({ client, userLoggedIn, user }) {
       {user.loggedIn ? (
         <input type="button" value="LogOut" onClick={() => handleLogOut()} />
       ) : (
-        <div>
+        <div className="loginForm">
           <input
+            className="modalElement"
             type="text"
             placeholder="Username"
             value={usernameInput}
             onChange={(e) => setUsernameInput(e.target.value)}
           />
           <input
+            className="modalElement"
             type="password"
             placeholder="Passwort"
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
           />
-          <input type="button" value="LogIn" onClick={() => handleLogIn()} />
+          <input
+            className="modalElement modalBtn"
+            type="button"
+            value="LogIn"
+            onClick={() => handleLogIn()}
+          />
+          <input
+            className="modalElement modalBtn"
+            type="button"
+            value="Registrieren"
+            onClick={() => handleRegistration()}
+          />
         </div>
       )}
-      <input
-        type="button"
-        value="Registrieren"
-        onClick={() => handleRegistration()}
-      />
     </div>
   );
 }

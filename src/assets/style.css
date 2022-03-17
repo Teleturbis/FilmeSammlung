@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
 
 :root {
   font-size: 62.5%; /* 62.5% */
@@ -11,20 +11,16 @@
   --buttonColorHover: rgba(156, 156, 156, 0.2);
   --buttonColorClick: rgb(175, 175, 175);
 
-  /* --bgColor: #314455;
-  --bgContent: #c96567;
-  --bodyBgColor: #c96567; */
-
   --bgColor: #a54244;
   --bgContent: #314455;
   --bodyBgColor: #314455;
 
-  --comicFont: 'Bangers', cursive;
-  --sciFiFont: 'Faster One', cursive;
-  --horrorFont: 'Nosifer', cursive;
-  --sweetFont: 'Oleo Script', cursive;
-  --westernFont: 'Rye', cursive;
-  --standartFont: 'Staatliches', cursive;
+  --comicFont: "Bangers", cursive;
+  --sciFiFont: "Faster One", cursive;
+  --horrorFont: "Nosifer", cursive;
+  --sweetFont: "Oleo Script", cursive;
+  --westernFont: "Rye", cursive;
+  --standartFont: "Staatliches", cursive;
 }
 
 body {
@@ -193,6 +189,18 @@ body {
 }
 
 /**********************************/
+/*    ***       Main      ***     */
+/**********************************/
+
+.loginForm {
+  width: 50%;
+  margin: 2rem auto;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/**********************************/
 /*    ***       MODAL     ***     */
 /**********************************/
 
@@ -250,37 +258,8 @@ body {
   background-color: rgb(228, 91, 91);
 }
 
-@media only screen and (max-width: 430px) {
-  .headlineNavLink {
-    font-size: 8rem;
-  }
-
-  .navLink {
-    font-size: 0.75em;
-
-    padding: 0.25em 0.5em;
-    margin: 0;
-
-    border-color: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .socialMediaDiv {
-    width: 25%;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .footerDiv {
-    width: 100%;
-  }
-}
-
 /**********************************/
-/*    ***       Main    ***     */
+/*    ***       Main      ***     */
 /**********************************/
 
 .mainContainer {
@@ -294,7 +273,7 @@ body {
 }
 
 /**********************************/
-/*    ***       Caroussel    ***     */
+/*    ***    Caroussel    ***     */
 /**********************************/
 
 .carousselPicture {
@@ -395,6 +374,65 @@ body {
 
 .carousselButton:active {
   border: 1px solid black;
+}
+
+/**************************************/
+/*    ***    MEDIAQUERRIES    ***     */
+/**************************************/
+
+@media only screen and (max-width: 430px) {
+  .headlineNavLink {
+    font-size: 8rem;
+  }
+
+  .navLink {
+    font-size: 0.5em;
+
+    padding: 0.25em 0.5em;
+    margin: 0;
+
+    border-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .socialMediaDiv {
+    width: 25%;
+  }
+
+  .userNameHeader {
+    width: 80% !important;
+    position: static !important;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around !important;
+    align-items: center;
+    margin: 1rem auto;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .footerDiv {
+    width: 100%;
+  }
+
+  .userNameHeader {
+    font-size: 2rem;
+    width: 20rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
 }
 
 /**********************************/

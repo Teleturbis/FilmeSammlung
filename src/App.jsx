@@ -1,34 +1,35 @@
-import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import * as Contentful from 'contentful';
-import Header from './components/general/Header.jsx';
-import Footer from './components/general/Footer.jsx';
-import './assets/style.css';
-import Caroussel from './components/Caroussel.jsx';
-import Genres from './components/Genres.jsx';
-import FilmDetail from './components/FilmDetail.jsx';
-import LogIn from './components/LogIn.jsx';
-import Hot from './components/Hot';
-import SearchActor from './components/SearchActor.jsx';
-import SearchDirector from './components/SearchDirector.jsx';
-import SearchCompany from './components/SearchCompany.jsx';
-import SearchGenre from './components/SearchGenre.jsx';
-import Main from './components/general/Main.jsx';
+import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import * as Contentful from "contentful";
+import "./assets/style.css";
+
+import Header from "./components/general/Header.jsx";
+import Footer from "./components/general/Footer.jsx";
+import Main from "./components/general/Main.jsx";
+
+import Genres from "./components/genres/Genres.jsx";
+import FilmDetail from "./components/details/FilmDetail.jsx";
+
+import LogIn from "./components/login/LogIn.jsx";
+import User from "./components/login/User.jsx";
+
+import Hot from "./components/Hot";
+
+import SearchActor from "./components/search/SearchActor.jsx";
+import SearchDirector from "./components/search/SearchDirector.jsx";
+import SearchCompany from "./components/search/SearchCompany.jsx";
+import SearchGenre from "./components/search/SearchGenre.jsx";
+import Search from "./components/search/Search.jsx";
 
 function App() {
   const [films, setFilms] = useState(false);
   const [randomFilms, setRandomFilms] = useState([]);
-  const [user, setUser] = useState({ loggedIn: false, userName: '', id: '' });
-  const [localStorageUser, setLocalStorageUser] = useState({
-    loggedIn: false,
-    userName: '',
-    id: '',
-  });
+  const [user, setUser] = useState({ loggedIn: false, userName: "", id: "" });
 
   const client = Contentful.createClient({
-    space: '5o4kejg5nlut',
-    accessToken: 'IPErBwAcWvsPYzYEBdLbsMibGKstWOFf7yPBwZHWMSo',
-    host: 'cdn.contentful.com',
+    space: "5o4kejg5nlut",
+    accessToken: "IPErBwAcWvsPYzYEBdLbsMibGKstWOFf7yPBwZHWMSo",
+    host: "cdn.contentful.com",
   });
 
   function userLoggedIn(userName, uuid) {
@@ -37,19 +38,19 @@ function App() {
 
   useEffect(() => {
     fetchData();
-    if (localStorage.getItem('loggedIn') === 'true') {
+    if (localStorage.getItem("loggedIn") === "true") {
       setUser({
-        loggedIn: localStorage.getItem('loggedIn'),
-        userName: localStorage.getItem('userName'),
-        id: localStorage.getItem('id'),
+        loggedIn: localStorage.getItem("loggedIn"),
+        userName: localStorage.getItem("userName"),
+        id: localStorage.getItem("id"),
       });
     } else {
-      setUser({ loggedIn: false, userName: '', id: '' });
+      setUser({ loggedIn: false, userName: "", id: "" });
     }
   }, []);
 
   async function fetchData() {
-    let fetching = await client.getEntries({ content_type: 'filmItem3' });
+    let fetching = await client.getEntries({ content_type: "filmItem3" });
     setFilms(fetching.items);
   }
 
@@ -72,8 +73,8 @@ function App() {
       }
 
       setRandomFilms(tempArr);
-      console.log(randomNumber, 'randomNumber');
-      console.log(films.length, 'filmlength');
+      console.log(randomNumber, "randomNumber");
+      console.log(films.length, "filmlength");
     }
   }, [films]);
 
@@ -83,16 +84,18 @@ function App() {
       <div>{films && console.log(films)}</div>
       <Routes>
         <Route path="hot" element={<Hot films={films} />}></Route>
-        <Route path="/login">
+        <Route path="/user">
+          <Route index element={<User client={client} user={user} />}></Route>
           <Route
-            index
+            path="/user/login"
             element={
               <LogIn client={client} userLoggedIn={userLoggedIn} user={user} />
             }
           ></Route>
         </Route>
+
         <Route path="/search">
-          <Route index element={<></>}></Route>
+          <Route index element={<Search films={films} />}></Route>
           <Route
             path="/search/actors/:searchName"
             element={<SearchActor films={films} />}
@@ -110,6 +113,7 @@ function App() {
             element={<SearchGenre films={films} />}
           />
         </Route>
+
         <Route
           path="/genre"
           element={<Genres client={client} films={films} />}

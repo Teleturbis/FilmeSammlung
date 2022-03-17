@@ -62,7 +62,7 @@ export default function AddComment({ comments, user, entryId }) {
               <p className="commentDate">{comment.created_at.toString()}</p>
             </div>
             {comment.content.split("\n").map((str, index) => (
-              <p key={index} className="commen-paragraph">
+              <p key={index} className="commentParagraph">
                 {str}
               </p>
             ))}
