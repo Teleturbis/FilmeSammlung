@@ -6,18 +6,29 @@ import {
 } from 'react-icons/md';
 
 function Caroussel({ randomFilms }) {
+<<<<<<< Updated upstream
+=======
+  // console.log(randomFilms[0].fields.title);
+  // console.log(randomFilms[0].fields.previewImage.fields.file.url);
+
+>>>>>>> Stashed changes
   let [indexNumber, setIndexNumber] = useState(0);
 
   const [pic1, setPic1] = useState();
   const [pic2, setPic2] = useState();
   const [pic3, setPic3] = useState();
 
+<<<<<<< Updated upstream
   useEffect(() => {
     const slideInterval = setInterval(() => {
       previousPicture();
     }, 3000);
     return () => clearInterval(slideInterval);
   }, [indexNumber]);
+=======
+  console.log(indexNumber, 'indexNumber');
+  console.log(randomFilms, 'randomFilms');
+>>>>>>> Stashed changes
 
   const nextPicture = () => {
     if (indexNumber === 2) {
@@ -88,14 +99,22 @@ function Caroussel({ randomFilms }) {
                   className={`${pic1} carousselPicture`}
                 />
               </NavLink>
+<<<<<<< Updated upstream
               <NavLink to={`/film/${randomFilms[1].sys.id}`}>
+=======
+              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
+>>>>>>> Stashed changes
                 <img
                   src={randomFilms[1].fields.previewImage}
                   alt=""
                   className={pic2}
                 />
               </NavLink>
+<<<<<<< Updated upstream
               <NavLink to={`/film/${randomFilms[2].sys.id}`}>
+=======
+              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
+>>>>>>> Stashed changes
                 <img
                   src={randomFilms[2].fields.previewImage}
                   alt=""

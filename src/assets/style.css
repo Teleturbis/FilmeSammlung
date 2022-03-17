@@ -495,3 +495,121 @@ body {
   font-size: 1.5rem;
   vertical-align: middle;
 }
+
+/**********************************/
+/*    ***       Main    ***     */
+/**********************************/
+
+.mainContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0 5%;
+  border: 6px solid black;
+  padding: 40px 20px;
+  border-radius: 5px;
+}
+
+/**********************************/
+/*    ***       Caroussel    ***     */
+/**********************************/
+
+.carousselPicture {
+  position: absolute;
+  height: 375px;
+  /* transform: translateX(-250px); */
+}
+
+.carousselTitle {
+  margin: 0;
+}
+
+.fadeinright-animation {
+  animation: fadeInRight 1.2s ease-in-out forwards;
+}
+
+.fadeoutright-animation {
+  animation: fadeOutRight 1.2s ease-in-out forwards;
+}
+
+.fadeinleft-animation {
+  animation: fadeOutLeft 1.2s ease-in-out forwards;
+}
+
+.fadeoutleft-animation {
+  animation: fadeInLeft 1.2s ease-in-out forwards;
+}
+
+.caroussel {
+  overflow: hidden;
+  width: 250px;
+  height: 375px;
+  position: relative;
+}
+.carousselFrame {
+  display: flex;
+}
+
+.carousselContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(-250px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(250px);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(250px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-250px);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.carousselButton {
+  background-color: white;
+  border: none;
+  font-size: 2.5rem;
+}
+
+.carousselButton:hover {
+  background-color: gainsboro;
+}
+
+.carousselButton:active {
+  border: 1px solid black;
+}
