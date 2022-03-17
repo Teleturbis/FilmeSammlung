@@ -55,8 +55,8 @@ export default function User({ user }) {
       ).sys.id;
     }
 
-    if (messagesCopy) {
-      messagesCopy.push({
+    if (messagesCopy.length > 0) {
+      messagesCopy.reverse().push({
         content: userInput,
         from: user.id,
         timeStamp: currentDate.getHours() + ":" + currentDate.getMinutes(),
@@ -72,7 +72,7 @@ export default function User({ user }) {
     }
 
     if (
-      messages > 0 &&
+      messages.length > 0 &&
       messages.map((el) => JSON.stringify(el))[0].includes(partnerId)
     ) {
       client
@@ -122,7 +122,7 @@ export default function User({ user }) {
       );
 
       setMessageHistory(
-        messagesToDisplay.fields.chatHistory.map((message, index) =>
+        messagesToDisplay.fields.chatHistory.reverse().map((message, index) =>
           message.from === user.id ? (
             <div className="outgoingMessage" key={index}>
               <p className="message">{message.content}</p>
@@ -168,7 +168,7 @@ export default function User({ user }) {
       </div>
 
       <div className="chatHistory">
-        <div className="prevMessages">{messageHistory && messageHistory}</div>
+        <div className="prevMessages">{messageHistory}</div>
 
         <div className="chatUserInputDiv">
           <textarea
