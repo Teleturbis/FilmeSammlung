@@ -5,10 +5,14 @@ import InTheaters from "../InTheaters";
 
 function Main({ randomFilms, client }) {
   return (
-    <div className="mainContainer">
-      <News />
+    <div
+      className="mainContainer"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
       <Caroussel randomFilms={randomFilms} />
-      <InTheaters client={client} />
+      <div>
+        <InTheaters client={client} />
+      </div>
     </div>
   );
 }
