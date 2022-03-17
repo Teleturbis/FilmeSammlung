@@ -118,7 +118,10 @@ function App() {
           path="/genre"
           element={<Genres client={client} films={films} />}
         />
-        <Route path="/" element={<Main randomFilms={randomFilms} />} />
+        <Route
+          path="/"
+          element={<Main randomFilms={randomFilms} client={client} />}
+        />
 
         <Route
           path="/film/:filmid"
