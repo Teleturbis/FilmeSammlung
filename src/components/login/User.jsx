@@ -29,10 +29,10 @@ export default function User({ user }) {
     setUsers(fetching.items);
   }
 
-  async function fetchedMessages() {
+  async function fetchedMessages(id) {
     let fetchedMessages = await getClient.getEntries({
       content_type: "messages",
-      "fields.ids[in]": user.id,
+      "fields.ids[in]": id,
     });
     setMessages(fetchedMessages.items);
   }
@@ -44,7 +44,7 @@ export default function User({ user }) {
     let messagesCopy;
 
     if (
-      messages > 0 &&
+      messages.length > 0 &&
       messages.map((el) => JSON.stringify(el))[0].includes(partnerId)
     ) {
       messagesCopy = messages.find((chat) =>
@@ -103,7 +103,7 @@ export default function User({ user }) {
 
     setTimeout(() => {
       fetchData();
-      fetchedMessages();
+      fetchedMessages(user.id);
       handleContactClick(partnerId);
     }, 2000);
 
