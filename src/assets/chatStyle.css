@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Passion+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Faster+One&family=Passion+One&family=Nosifer&family=Oleo+Script&family=Rye&family=Staatliches&display=swap');
 
 :root {
   font-size: 62.5%; /* 62.5% */
 
-  --textColor: rgb(20, 20, 20);
+  --textColor: rgb(223, 223, 223);
+  --textColor2: rgb(43, 42, 42);
   --textColorHover: rgba(31, 31, 31, 0.5);
 
   --buttonColor: rgb(156, 156, 156);
@@ -14,13 +15,13 @@
   --bgContent: #314455;
   --bodyBgColor: #314455;
 
-  --comicFont: "Bangers", cursive;
-  --sciFiFont: "Faster One", cursive;
-  --horrorFont: "Nosifer", cursive;
-  --sweetFont: "Oleo Script", cursive;
-  --westernFont: "Rye", cursive;
-  --standartFont: "Staatliches", cursive;
-  --chatFont: "Passion One", cursive;
+  --comicFont: 'Bangers', cursive;
+  --sciFiFont: 'Faster One', cursive;
+  --horrorFont: 'Nosifer', cursive;
+  --sweetFont: 'Oleo Script', cursive;
+  --westernFont: 'Rye', cursive;
+  --standartFont: 'Staatliches', cursive;
+  --chatFont: 'Passion One', cursive;
 }
 
 .chatMainDiv {
