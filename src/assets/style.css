@@ -613,3 +613,112 @@ body {
 .carousselButton:active {
   border: 1px solid black;
 }
+
+/**********************************/
+/*       In Theaters Section      */
+/**********************************/
+
+.InTheatersContainer {
+  text-align: center;
+}
+
+.Line {
+  border: 5px solid red;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  border-radius: 10px;
+}
+
+.maincontainer--card {
+  background-color: green;
+  display: inline-block;
+  margin: 1rem 1rem;
+  min-width: 20rem;
+  min-height: 35rem;
+  max-width: 20rem;
+  max-height: 35rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px black;
+}
+
+.thecard {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+}
+
+.thecard:hover {
+  transform: rotateY(180deg);
+}
+
+.thefront {
+  display: absolute;
+  margin: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-width: 20rem;
+  min-height: 35rem;
+  max-width: 20rem;
+  max-height: 35rem;
+  overflow: hidden;
+  text-decoration-color: transparent;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px black;
+  transition: 250ms;
+}
+
+.theback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: #fafafa;
+  color: #333;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+.card--container {
+  display: inline-block;
+  margin: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-width: 20rem;
+  min-height: 35rem;
+  max-width: 20rem;
+  max-height: 35rem;
+  overflow: hidden;
+  text-decoration-color: transparent;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px black;
+  transition: 250ms;
+}
+
+.card--container:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 430px) {
+  .card--container {
+    min-width: 24rem;
+    min-height: 39rem;
+    max-width: 24rem;
+    max-height: 39rem;
+  }
+  .genreList > h3 {
+    font-size: 3rem;
+    margin: 0 1rem;
+  }
+}

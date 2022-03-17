@@ -1,34 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
-} from 'react-icons/md';
+} from "react-icons/md";
 
 function Caroussel({ randomFilms }) {
-<<<<<<< Updated upstream
-=======
-  // console.log(randomFilms[0].fields.title);
-  // console.log(randomFilms[0].fields.previewImage.fields.file.url);
-
->>>>>>> Stashed changes
   let [indexNumber, setIndexNumber] = useState(0);
 
   const [pic1, setPic1] = useState();
   const [pic2, setPic2] = useState();
   const [pic3, setPic3] = useState();
 
-<<<<<<< Updated upstream
   useEffect(() => {
     const slideInterval = setInterval(() => {
       previousPicture();
     }, 3000);
     return () => clearInterval(slideInterval);
   }, [indexNumber]);
-=======
-  console.log(indexNumber, 'indexNumber');
-  console.log(randomFilms, 'randomFilms');
->>>>>>> Stashed changes
 
   const nextPicture = () => {
     if (indexNumber === 2) {
@@ -52,33 +41,33 @@ function Caroussel({ randomFilms }) {
 
   function cssClassRight() {
     if (indexNumber === 2) {
-      setPic1('fadeinright-animation carousselPicture');
-      setPic2('hidden');
-      setPic3('fadeoutright-animation carousselPicture');
+      setPic1("fadeinright-animation carousselPicture");
+      setPic2("hidden");
+      setPic3("fadeoutright-animation carousselPicture");
     } else if (indexNumber === 0) {
-      setPic1('fadeoutright-animation carousselPicture');
-      setPic2('fadeinright-animation carousselPicture');
-      setPic3('hidden');
+      setPic1("fadeoutright-animation carousselPicture");
+      setPic2("fadeinright-animation carousselPicture");
+      setPic3("hidden");
     } else {
-      setPic1('hidden');
-      setPic2('fadeoutright-animation carousselPicture');
-      setPic3('fadeinright-animation carousselPicture');
+      setPic1("hidden");
+      setPic2("fadeoutright-animation carousselPicture");
+      setPic3("fadeinright-animation carousselPicture");
     }
   }
 
   function cssClassLeft() {
     if (indexNumber === 0) {
-      setPic1('fadeinleft-animation carousselPicture');
-      setPic2('hidden');
-      setPic3('fadeoutleft-animation carousselPicture');
+      setPic1("fadeinleft-animation carousselPicture");
+      setPic2("hidden");
+      setPic3("fadeoutleft-animation carousselPicture");
     } else if (indexNumber === 1) {
-      setPic1('fadeoutleft-animation carousselPicture');
-      setPic2('fadeinleft-animation carousselPicture');
-      setPic3('hidden');
+      setPic1("fadeoutleft-animation carousselPicture");
+      setPic2("fadeinleft-animation carousselPicture");
+      setPic3("hidden");
     } else {
-      setPic1('hidden');
-      setPic2('fadeoutleft-animation carousselPicture');
-      setPic3('fadeinleft-animation carousselPicture');
+      setPic1("hidden");
+      setPic2("fadeoutleft-animation carousselPicture");
+      setPic3("fadeinleft-animation carousselPicture");
     }
   }
 
@@ -99,22 +88,14 @@ function Caroussel({ randomFilms }) {
                   className={`${pic1} carousselPicture`}
                 />
               </NavLink>
-<<<<<<< Updated upstream
               <NavLink to={`/film/${randomFilms[1].sys.id}`}>
-=======
-              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
->>>>>>> Stashed changes
                 <img
                   src={randomFilms[1].fields.previewImage}
                   alt=""
                   className={pic2}
                 />
               </NavLink>
-<<<<<<< Updated upstream
               <NavLink to={`/film/${randomFilms[2].sys.id}`}>
-=======
-              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
->>>>>>> Stashed changes
                 <img
                   src={randomFilms[2].fields.previewImage}
                   alt=""
