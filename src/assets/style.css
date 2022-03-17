@@ -243,35 +243,6 @@ body {
   background-color: rgb(228, 91, 91);
 }
 
-@media only screen and (max-width: 430px) {
-  .headlineNavLink {
-    font-size: 8rem;
-  }
-
-  .navLink {
-    font-size: 0.75em;
-
-    padding: 0.25em 0.5em;
-    margin: 0;
-
-    border-color: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .socialMediaDiv {
-    width: 25%;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .footerDiv {
-    width: 100%;
-  }
-}
-
 /**********************************/
 /*    ***       Main      ***     */
 /**********************************/
@@ -388,4 +359,63 @@ body {
 
 .carousselButton:active {
   border: 1px solid black;
+}
+
+/**************************************/
+/*    ***    MEDIAQUERRIES    ***     */
+/**************************************/
+
+@media only screen and (max-width: 430px) {
+  .headlineNavLink {
+    font-size: 8rem;
+  }
+
+  .navLink {
+    font-size: 0.5em;
+
+    padding: 0.25em 0.5em;
+    margin: 0;
+
+    border-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .socialMediaDiv {
+    width: 25%;
+  }
+
+  .userNameHeader {
+    width: 80% !important;
+    position: static !important;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around !important;
+    align-items: center;
+    margin: 1rem auto;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .footerDiv {
+    width: 100%;
+  }
+
+  .userNameHeader {
+    font-size: 2rem;
+    width: 20rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
 }

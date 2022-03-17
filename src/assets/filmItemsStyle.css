@@ -1,11 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
 
-:root{
-
+:root {
   --buttonColor: rgb(156, 156, 156);
   --buttonColorHover: rgba(156, 156, 156, 0.2);
   --buttonColorClick: rgb(175, 175, 175);
-
 }
 
 .filmDetails {
@@ -35,6 +33,10 @@
 .filmitemHeaderDiv > div {
   width: 70%;
   height: fit-content;
+}
+
+.filmDetailsList {
+  display: flex;
 }
 
 .ulFilmDetailsGenres {
@@ -72,15 +74,15 @@
   border: 1px solid rgba(128, 128, 128, 0.75);
 }
 
-.showMoreActors{
-
+.showMoreActors {
   background-color: var(--buttonColor);
-
 }
 
 .userAddComment {
   display: flex;
   justify-content: center;
+
+  margin-bottom: 5rem;
 }
 
 .userAddComment > input {
@@ -155,8 +157,197 @@
   letter-spacing: 0.15rem;
 }
 
-/* .comment-paragraph {
-  border: 1px solid lightgrey;
-  padding: 1rem;
-  border-radius: 5px;
-} */
+@media only screen and (max-width: 430px) {
+  .filmitemHeaderDiv > img {
+    display: none;
+  }
+
+  .filmitemHeaderDiv {
+    text-align: justify;
+    padding: 0 1rem;
+  }
+
+  .filmitemHeaderDiv > div {
+    width: 100%;
+  }
+  .filmitemHeaderDiv > div > h2 {
+    text-align: center;
+  }
+
+  .filmDetailsList {
+    display: block !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+  }
+
+  .filmDetailsList > ul > div > a {
+    display: block !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 auto !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .filmDetailsList > ul {
+    margin: 0 auto !important;
+    margin-bottom: 2rem !important;
+    width: fit-content !important;
+    text-align: center !important;
+    list-style: none !important;
+    padding: 0;
+  }
+/*  */
+  /* .ulFilmDetailsActors > div > a { */
+    /* display: block; */
+    /* padding: 0.5rem 1rem; */
+    /* margin: 0 auto; */
+    /* margin-bottom: 1rem; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsActors { */
+    /* margin: 0 auto; */
+    /* margin-bottom: 2rem; */
+    /* width: fit-content; */
+    /* text-align: center; */
+    /* list-style: none; */
+    /* padding: 0; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsCompany > div > a { */
+    /* display: block; */
+    /* padding: 0.5rem 1rem; */
+    /* margin: 0 auto; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsCompany { */
+    /* margin: 0 auto; */
+    /* margin-bottom: 2rem; */
+    /* width: fit-content; */
+    /* text-align: center; */
+    /* list-style: none; */
+    /* padding: 0; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsPublished > div > a { */
+    /* display: block; */
+    /* padding: 0.5rem 1rem; */
+    /* margin: 0 auto; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsPublished { */
+    /* margin: 0 auto; */
+    /* margin-bottom: 2rem; */
+    /* width: fit-content; */
+    /* text-align: center; */
+    /* list-style: none; */
+    /* padding: 0; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsDirector > div > a { */
+    /* display: block; */
+    /* padding: 0.5rem 1rem; */
+    /* margin: 0 auto; */
+  /* } */
+  /* .ulFilmDetailsDirector { */
+    /* margin: 0 auto; */
+    /* margin-bottom: 2rem; */
+    /* width: fit-content; */
+    /* text-align: center; */
+    /* list-style: none; */
+    /* padding: 0; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsLength > div > a { */
+    /* display: block; */
+    /* padding: 0.5rem 1rem; */
+    /* margin: 0 auto; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsLength { */
+    /* margin: 0 auto; */
+    /* margin-bottom: 2rem; */
+    /* width: fit-content; */
+    /* text-align: center; */
+    /* list-style: none; */
+    /* padding: 0; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsLikes > div > a { */
+    /* display: block; */
+    /* padding: 0.5rem 1rem; */
+    /* margin: 0 auto; */
+  /* } */
+/*  */
+  /* .ulFilmDetailsLikes { */
+    /* margin: 0 auto; */
+    /* margin-bottom: 2rem; */
+    /* width: fit-content; */
+    /* text-align: center; */
+    /* list-style: none; */
+    /* padding: 0; */
+  /* } */
+
+  .commentDiv {
+    width: 80%;
+  }
+
+  .commentHeader {
+    flex-direction: column;
+  }
+
+  .commentDate {
+    font-size: 1.5rem;
+  }
+
+  .commentParagraph {
+    font-size: 2rem;
+  }
+
+  .userAddComment {
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 2rem;
+
+    background-color: rebeccapurple;
+
+    height: 35rem;
+  }
+
+  .userAddComment > textarea {
+    width: 70%;
+    margin: auto auto;
+  }
+
+  .userAddComment > input {
+    width: 35%;
+    height: 15%;
+    margin: auto auto;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .filmImg {
+    display: none;
+  }
+
+  .filmitemHeaderDiv > div {
+    text-align: justify;
+    width: 100%;
+  }
+
+  .filmitemHeaderDiv > div > h2 {
+    text-align: center;
+  }
+
+  .filmDetailsList {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .filmDetailsList > ul {
+    list-style: none;
+    padding: 0;
+
+    margin: 1rem 0;
+  }
+}

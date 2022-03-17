@@ -31,7 +31,7 @@ export default function Trailer({ filmName }) {
   };
 
   return (
-    <div style={{ height: `${height}px` }}>
+    <div style={{marginTop: "1rem", width: "100%", display: "flex", justifyContent: "center", height: `${height}px` }}>
       {url ? <YouTube videoId={url} opts={opts} onReady={_onReady} /> : null}
     </div>
   );
