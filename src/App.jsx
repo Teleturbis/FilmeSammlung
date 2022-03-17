@@ -8,6 +8,7 @@ import Caroussel from './components/Caroussel.jsx';
 import Genres from './components/Genres.jsx';
 import FilmDetail from './components/FilmDetail.jsx';
 import LogIn from './components/LogIn.jsx';
+import Hot from './components/Hot';
 import SearchActor from './components/SearchActor.jsx';
 import SearchDirector from './components/SearchDirector.jsx';
 import SearchCompany from './components/SearchCompany.jsx';
@@ -81,6 +82,7 @@ function App() {
       <Header user={user} userLoggedIn={userLoggedIn} />
       <div>{films && console.log(films)}</div>
       <Routes>
+        <Route path="hot" element={<Hot films={films} />}></Route>
         <Route path="/login">
           <Route
             index
