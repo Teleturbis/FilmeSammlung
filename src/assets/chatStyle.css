@@ -10,8 +10,9 @@
   --buttonColorHover: rgba(156, 156, 156, 0.2);
   --buttonColorClick: rgb(175, 175, 175);
 
-  --bgColor: gray;
-  --bgContent: white;
+  --bgColor: #a54244;
+  --bgContent: #314455;
+  --bodyBgColor: #314455;
 
   --comicFont: "Bangers", cursive;
   --sciFiFont: "Faster One", cursive;

@@ -11,10 +11,6 @@
   --buttonColorHover: rgba(156, 156, 156, 0.2);
   --buttonColorClick: rgb(175, 175, 175);
 
-  /* --bgColor: #314455;
-  --bgContent: #c96567;
-  --bodyBgColor: #c96567; */
-
   --bgColor: #a54244;
   --bgContent: #314455;
   --bodyBgColor: #314455;
@@ -437,64 +433,65 @@ body {
   body {
     overflow-x: hidden;
   }
-  /**********************************/
-  /*    ***       Hot    ***     */
-  /**********************************/
+}
 
-  .hotFilmsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-items: center;
-    gap: 30px;
-    justify-content: center;
-    margin: 2% auto;
-  }
+/**********************************/
+/*    ***       Hot    ***     */
+/**********************************/
 
-  .hotNavLink {
-    text-decoration: none;
-  }
+.hotFilmsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  gap: 30px;
+  justify-content: center;
+  margin: 2% auto;
+}
 
-  .hotCard {
-    height: 450px;
-    width: 300px;
-    background-size: contain;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: 450ms ease-out;
-    -webkit-box-shadow: 0px 0px 19px -4px #000000;
-    box-shadow: 0px 0px 19px -4px #000000;
-  }
+.hotNavLink {
+  text-decoration: none;
+}
 
-  .hotCard:hover {
-    transform: scale(1.05);
-    -webkit-box-shadow: 0px 5px 19px 2px #000000;
-    box-shadow: 0px 5px 19px 2px #000000;
-  }
+.hotCard {
+  height: 450px;
+  width: 300px;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: 450ms ease-out;
+  -webkit-box-shadow: 0px 0px 19px -4px #000000;
+  box-shadow: 0px 0px 19px -4px #000000;
+}
 
-  .hotCard:hover .card-content {
-    transform: translateY(-170px);
-    opacity: 1;
-  }
+.hotCard:hover {
+  transform: scale(1.05);
+  -webkit-box-shadow: 0px 5px 19px 2px #000000;
+  box-shadow: 0px 5px 19px 2px #000000;
+}
 
-  .card-content {
-    font-size: 2.5rem;
-    position: relative;
-    text-align: center;
-    top: 440px;
-    padding: 30px;
-    background-color: #97aabd;
-    opacity: 0.3;
-    color: white;
-    transition: 1000ms;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.hotCard:hover .card-content {
+  transform: translateY(-170px);
+  opacity: 1;
+}
 
-  .hotPoints {
-    font-size: 1.5rem;
-    vertical-align: middle;
-  }
+.card-content {
+  font-size: 2.5rem;
+  position: relative;
+  text-align: center;
+  top: 440px;
+  padding: 30px;
+  background-color: #97aabd;
+  opacity: 0.3;
+  color: white;
+  transition: 1000ms;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hotPoints {
+  font-size: 1.5rem;
+  vertical-align: middle;
 }
