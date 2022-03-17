@@ -76,6 +76,10 @@ function App() {
     }
   }, [films]);
 
+
+
+  console.log("APP ID", user.id)
+
   return (
     <div>
       <Header user={user} userLoggedIn={userLoggedIn} />
