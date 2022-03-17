@@ -32,7 +32,7 @@ export default function User({ user }) {
   async function fetchedMessages(id) {
     let fetchedMessages = await getClient.getEntries({
       content_type: "messages",
-      "fields.ids[in]": id,
+      "fields.ids[all]": id,
     });
     setMessages(fetchedMessages.items);
   }
@@ -41,7 +41,7 @@ export default function User({ user }) {
     let currentDate = new Date();
     let entryId;
 
-    let messagesCopy;
+    let messagesCopy = [];
 
     if (
       messages.length > 0 &&
@@ -155,14 +155,14 @@ export default function User({ user }) {
     <div className="chatMainDiv">
       <div className="contactsDiv">
         {users &&
-          users.map((user) => (
+          users.map((contact) => ( contact.fields.userId === user.id ? null :
             <div
-              key={user.fields.userId}
+              key={contact.fields.userId}
               className="contact"
               style={{ backgroundColor: null }}
-              onClick={() => handleContactClick(user.fields.userId)}
+              onClick={() => handleContactClick(contact.fields.userId)}
             >
-              {user.fields.userName}
+              {contact.fields.userName}
             </div>
           ))}
       </div>
