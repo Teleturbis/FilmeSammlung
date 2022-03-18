@@ -258,124 +258,6 @@ body {
   background-color: rgb(228, 91, 91);
 }
 
-/**********************************/
-/*    ***       Main      ***     */
-/**********************************/
-
-.mainContainer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin: 0 5%;
-  border: 6px solid black;
-  padding: 40px 20px;
-  border-radius: 5px;
-}
-
-/**********************************/
-/*    ***    Caroussel    ***     */
-/**********************************/
-
-.carousselPicture {
-  position: absolute;
-  height: 375px;
-  /* transform: translateX(-250px); */
-}
-
-.carousselTitle {
-  margin: 0;
-}
-
-.fadeinright-animation {
-  animation: fadeInRight 1.2s ease-in-out forwards;
-}
-
-.fadeoutright-animation {
-  animation: fadeOutRight 1.2s ease-in-out forwards;
-}
-
-.fadeinleft-animation {
-  animation: fadeOutLeft 1.2s ease-in-out forwards;
-}
-
-.fadeoutleft-animation {
-  animation: fadeInLeft 1.2s ease-in-out forwards;
-}
-
-.caroussel {
-  overflow: hidden;
-  width: 250px;
-  height: 375px;
-  position: relative;
-}
-.carousselFrame {
-  display: flex;
-}
-
-.carousselContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@keyframes fadeInRight {
-  from {
-    transform: translateX(-250px);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeOutRight {
-  from {
-    transform: translateX(0px);
-  }
-
-  to {
-    transform: translateX(250px);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    transform: translateX(250px);
-  }
-
-  to {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes fadeOutLeft {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-250px);
-  }
-}
-
-.hidden {
-  display: none;
-}
-
-.carousselButton {
-  background-color: var(--bodyBgColor);
-  border: none;
-  font-size: 2.5rem;
-}
-
-.carousselButton:hover {
-  background-color: var(--buttonColorHover);
-}
-
-.carousselButton:active {
-  border: 1px solid black;
-}
-
 /**************************************/
 /*    ***    MEDIAQUERRIES    ***     */
 /**************************************/
@@ -505,7 +387,7 @@ body {
   align-items: flex-end;
   justify-content: space-between;
   margin: 0 5%;
-  border: 6px solid black;
+  /* border: 3px solid black; */
   padding: 40px 20px;
   border-radius: 5px;
 }
@@ -548,6 +430,9 @@ body {
 }
 .carousselFrame {
   display: flex;
+
+  margin-bottom: 5rem;
+  margin-top: 3rem;
 }
 
 .carousselContainer {
@@ -601,9 +486,12 @@ body {
 }
 
 .carousselButton {
-  background-color: white;
+  background-color: var(--bgColor);
   border: none;
   font-size: 2.5rem;
+
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .carousselButton:hover {
@@ -623,14 +511,21 @@ body {
 }
 
 .Line {
-  border: 5px solid red;
+  border: 5px solid var(--bgColor);
   margin-left: 4rem;
   margin-right: 4rem;
   border-radius: 10px;
 }
 
+.lowerLine {
+  border: 5px solid var(--bgColor);
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+}
+
 .maincontainer--card {
-  background-color: green;
   display: inline-block;
   margin: 1rem 1rem;
   min-width: 20rem;
@@ -691,7 +586,6 @@ body {
 
 .card--container {
   display: inline-block;
-  margin: 1rem 1rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

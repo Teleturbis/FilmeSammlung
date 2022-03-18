@@ -35,18 +35,24 @@ export default function Header({ user, userLoggedIn }) {
         <NavLink className="navLink" to="/genre">
           Genre
         </NavLink>
-        <NavLink className="navLink" to="/recommed">
+        {/* <NavLink className="navLink" to="/recommed">
           Empfehlungen
         </NavLink>
         <NavLink className="navLink" to="/soon">
           Coming Soon
-        </NavLink>
+        </NavLink> */}
         <NavLink className="navLink" to="/hot">
           Hot
         </NavLink>
-        {user.loggedIn ? <NavLink className="navLink" to="/user">Mein Bereich</NavLink> : <NavLink className="navLink" to="/user/login">
-          LogIn
-        </NavLink>}
+        {user.loggedIn ? (
+          <NavLink className="navLink" to="/user">
+            Mein Bereich
+          </NavLink>
+        ) : (
+          <NavLink className="navLink" to="/user/login">
+            LogIn
+          </NavLink>
+        )}
       </nav>
     </div>
   );

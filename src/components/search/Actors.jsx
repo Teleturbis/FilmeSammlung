@@ -10,7 +10,7 @@ export default function Actors({ actors }) {
     for (let i = 0; i < 9; i++) {
       tempArr[i] = (
         <NavLink
-          to={`/search/${actors[i]}`}
+          to={`/search/actors/${actors[i]}`}
           className="ulFilmDetailsParagraph"
           key={i}
         >

@@ -16,8 +16,6 @@ export default function FilmDetails({ films, user }) {
     }
   }, [films]);
 
-  console.log("FILMDETAILS", filmDetails);
-
   return (
     <div>
       {filmDetails && (
@@ -29,7 +27,11 @@ export default function FilmDetails({ films, user }) {
                 <h2>{filmDetails.fields.title}</h2>
                 <p>{filmDetails.fields.description}</p>
               </div>
-              <img className="filmImg" src={filmDetails.fields.previewImage} alt="Film Image" />
+              <img
+                className="filmImg"
+                src={filmDetails.fields.previewImage}
+                alt="Film Image"
+              />
             </div>
           </div>
           <div className="listDiv">
@@ -57,15 +59,17 @@ export default function FilmDetails({ films, user }) {
                 {filmDetails.fields.actors.length > 10 ? (
                   <Actors actors={filmDetails.fields.actors} />
                 ) : (
-                  filmDetails.fields.actors.map((el, index) => (
-                    <NavLink
-                      to={`/search/actors/${el}`}
-                      className="ulFilmDetailsParagraph"
-                      key={index}
-                    >
-                      {el}
-                    </NavLink>
-                  ))
+                  <div>
+                    {filmDetails.fields.actors.map((el, index) => (
+                      <NavLink
+                        to={`/search/actors/${el}`}
+                        className="ulFilmDetailsParagraph"
+                        key={index}
+                      >
+                        {el}
+                      </NavLink>
+                    ))}
+                  </div>
                 )}
               </ul>
               <ul className="ulFilmDetailsCompany">

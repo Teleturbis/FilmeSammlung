@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-import { AiOutlineLike } from 'react-icons/ai';
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { AiOutlineLike } from "react-icons/ai";
 
 function Hot({ films }) {
   const [hotFilms, setHotFilms] = useState([]);

@@ -156,8 +156,8 @@ export default function User({ user }) {
     }, 2500);
   }, [user]);
 
-  console.log("USERS", users);
-  console.log("MESSAGES", messages);
+  /* console.log("USERS", users);
+  console.log("MESSAGES", messages); */
 
   return (
     <div className="chatMainDiv">
