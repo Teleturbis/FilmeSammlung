@@ -19,17 +19,17 @@ export default function InTheaters({ film }) {
     setInTheatersArr(fetching.items);
   }, []);
 
-  useEffect(() => console.log("inTheatersArr", inTheatersArr), [inTheatersArr]);
+  // useEffect(() => console.log("inTheatersArr", inTheatersArr), [inTheatersArr]);
 
   return (
     <div className="InTheatersContainer" style={{ heigth: "200rem" }}>
       <hr className="Line"></hr>
       <h2>Im Kino</h2>
-      <hr className="Line"></hr>
+      <hr className="lowerLine"></hr>
 
       {inTheatersArr &&
         inTheatersArr.map((element, index) => (
-          <NavLink to={`/film/${element.sys.id}`}>
+          <NavLink to={`/film/${element.sys.id}`} key={index}>
             <div className="maincontainer--card">
               <div className="thecard">
                 <div
@@ -37,7 +37,6 @@ export default function InTheaters({ film }) {
                     backgroundImage: `url("${element.fields.previewImage}")`,
                   }}
                   className="card--container"
-                  key={index}
                 ></div>
                 <div className="theback">
                   <h2>{element.fields.title}</h2>

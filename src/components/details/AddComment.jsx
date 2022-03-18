@@ -46,9 +46,9 @@ export default function AddComment({ comments, user, entryId }) {
         .catch((err) => console.error("upload Comment", err));
 
       setCommentsArr([commentsCopy, ...commentsArr]);
-      setUserInput("")
+      setUserInput("");
     } else {
-        window.alert("Bitte logge dich ein!")
+      window.alert("Bitte logge dich ein!");
     }
   }
 

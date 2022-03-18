@@ -73,15 +73,13 @@ function App() {
       }
 
       setRandomFilms(tempArr);
-      console.log(randomNumber, "randomNumber");
-      console.log(films.length, "filmlength");
     }
   }, [films]);
 
   return (
     <div>
       <Header user={user} userLoggedIn={userLoggedIn} />
-      <div>{films && console.log(films)}</div>
+      {/* <div>{films && console.log(films)}</div> */}
       <Routes>
         <Route path="hot" element={<Hot films={films} />}></Route>
         <Route path="/user">
