@@ -1,5 +1,4 @@
 import React from "react";
-import News from "../News";
 import Caroussel from "../Caroussel";
 import InTheaters from "../InTheaters";
 

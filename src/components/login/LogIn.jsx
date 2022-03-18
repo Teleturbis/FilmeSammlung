@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "./Modal.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn({ client, userLoggedIn, user }) {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [modal, setModal] = useState(false);
+  let navigate = useNavigate();
 
   function handleLogIn() {
     client
@@ -21,6 +23,7 @@ export default function LogIn({ client, userLoggedIn, user }) {
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("userName", usernameInput);
           localStorage.setItem("id", response.items[0].fields.uuid);
+          navigate("/user");
         } else if (response.items[0]) {
           window.alert("FALSCHES PASSWORT");
         }
@@ -28,10 +31,6 @@ export default function LogIn({ client, userLoggedIn, user }) {
       .catch((err) => window.alert("ALERT User nicht gefunden | ", err));
     setPasswordInput("");
     setUsernameInput("");
-  }
-
-  function handleLogOut() {
-    userLoggedIn("", "");
   }
 
   function handleRegistration() {
@@ -47,9 +46,7 @@ export default function LogIn({ client, userLoggedIn, user }) {
       {modal ? (
         <Modal client={client} changeModalDisplayed={changeModalDisplayed} />
       ) : null}
-      {user.loggedIn ? (
-        <input type="button" value="LogOut" onClick={() => handleLogOut()} />
-      ) : (
+      {
         <div className="loginForm">
           <input
             className="modalElement"
@@ -78,7 +75,7 @@ export default function LogIn({ client, userLoggedIn, user }) {
             onClick={() => handleRegistration()}
           />
         </div>
-      )}
+      }
     </div>
   );
 }

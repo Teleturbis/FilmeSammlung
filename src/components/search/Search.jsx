@@ -12,8 +12,14 @@ export default function Search({ films }) {
         if (
           el.fields.director.toLowerCase().includes(searchName.toLowerCase()) ||
           el.fields.company.toLowerCase().includes(searchName.toLowerCase()) ||
-          el.fields.actors.join().toLowerCase().includes(searchName.toLowerCase()) ||
-          el.fields.genres.join().toLowerCase().includes(searchName.toLowerCase()) ||
+          el.fields.actors
+            .join()
+            .toLowerCase()
+            .includes(searchName.toLowerCase()) ||
+          el.fields.genres
+            .join()
+            .toLowerCase()
+            .includes(searchName.toLowerCase()) ||
           el.fields.title.toLowerCase().includes(searchName.toLowerCase())
         ) {
           return el;
@@ -43,13 +49,38 @@ export default function Search({ films }) {
 
   return (
     <div>
-      <div>
-        <input type="text" onChange={(e) => setSearchName(e.target.value)} />
-        <input type="button" value="Suchen!" onClick={() => handleSearch()} />
-        <input type="button" value="In Beschreibungen suchen!" onClick={() => handleSearchDescription()} />
+      <div
+        style={{
+          width: "50%",
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <input
+          className="modalElement"
+          type="text"
+          onChange={(e) => setSearchName(e.target.value)}
+        />
+        <input
+          className="modalElement modalBtn"
+          type="button"
+          value="Suchen!"
+          onClick={() => handleSearch()}
+        />
+        <input
+          className="modalElement modalBtn"
+          type="button"
+          value="In Beschreibungen suchen!"
+          onClick={() => handleSearchDescription()}
+        />
       </div>
       <div className="genreList">
-        <h3>Suche nach:<br/>{searchName}</h3>
+        <h3>
+          Suche nach:
+          <br />
+          {searchName}
+        </h3>
         <div className="filmsDiv">
           {searchResult &&
             searchResult.map((film, index) => (
