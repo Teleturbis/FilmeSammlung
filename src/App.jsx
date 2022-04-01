@@ -49,9 +49,13 @@ function App() {
     }
   }, []);
 
-  async function fetchData() {
-    let fetching = await client.getEntries({ content_type: "filmItem3" });
-    setFilms(fetching.items);
+  function fetchData() {
+    // let fetching = await client.getEntries({ content_type: "filmItem3" });
+    fetch("https://filmesammlung-backend.herokuapp.com/filmitems")
+      .then((res) => res.json())
+      .then((json) => setFilms(json));
+
+    // setFilms(fetching.items);
   }
 
   useEffect(() => {
@@ -75,6 +79,8 @@ function App() {
       setRandomFilms(tempArr);
     }
   }, [films]);
+
+  console.log(films);
 
   return (
     <div>
