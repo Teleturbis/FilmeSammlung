@@ -81,26 +81,18 @@ function Caroussel({ randomFilms }) {
         <div className="caroussel">
           {randomFilms.length && (
             <>
-              <NavLink to={`/film/${randomFilms[0].sys.id}`}>
+              <NavLink to={`/film/${randomFilms[0].filmid}`}>
                 <img
-                  src={randomFilms[0].fields.previewImage}
+                  src={randomFilms[0].preview}
                   alt=""
                   className={`${pic1} carousselPicture`}
                 />
               </NavLink>
-              <NavLink to={`/film/${randomFilms[1].sys.id}`}>
-                <img
-                  src={randomFilms[1].fields.previewImage}
-                  alt=""
-                  className={pic2}
-                />
+              <NavLink to={`/film/${randomFilms[1].filmid}`}>
+                <img src={randomFilms[1].preview} alt="" className={pic2} />
               </NavLink>
-              <NavLink to={`/film/${randomFilms[2].sys.id}`}>
-                <img
-                  src={randomFilms[2].fields.previewImage}
-                  alt=""
-                  className={pic3}
-                />
+              <NavLink to={`/film/${randomFilms[2].filmid}`}>
+                <img src={randomFilms[2].preview} alt="" className={pic3} />
               </NavLink>
             </>
           )}

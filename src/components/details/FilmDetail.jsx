@@ -12,7 +12,7 @@ export default function FilmDetails({ films, user }) {
 
   useEffect(() => {
     if (films) {
-      setFilmDetails(films.find((el) => el.sys.id === filmid));
+      setFilmDetails(films.find((el) => el.filmid === filmid));
     }
   }, [films]);
 
@@ -21,22 +21,22 @@ export default function FilmDetails({ films, user }) {
       {filmDetails && (
         <div className="filmDetails">
           <div className="trailerDiv">
-            <Trailer className="trailer" filmName={filmDetails.fields.title} />
+            <Trailer className="trailer" filmName={filmDetails.title} />
             <div className="filmitemHeaderDiv">
               <div>
-                <h2>{filmDetails.fields.title}</h2>
-                <p>{filmDetails.fields.description}</p>
+                <h2>{filmDetails.title}</h2>
+                <p>{filmDetails.description}</p>
               </div>
               <img
                 className="filmImg"
-                src={filmDetails.fields.previewImage}
+                src={filmDetails.preview}
                 alt="Film Image"
               />
             </div>
           </div>
           <div className="listDiv">
             <ul className="filmDetailsList">
-              <ul className="ulFilmDetailsGenres">
+              {/* <ul className="ulFilmDetailsGenres">
                 <li>
                   <h3 style={{ margin: 0 }}>Genre:</h3>
                 </li>
@@ -84,18 +84,18 @@ export default function FilmDetails({ films, user }) {
                     {filmDetails.fields.company}
                   </NavLink>
                 </div>
-              </ul>
+              </ul> */}
               <ul className="ulFilmDetailsPublished">
                 <li>
                   <h3 style={{ margin: 0 }}>Veröffentlicht:</h3>
                 </li>
                 <div>
                   <p className="ulFilmDetailsParagraphNoHover">
-                    {filmDetails.fields.date}
+                    {filmDetails.date}
                   </p>
                 </div>
               </ul>
-              <ul className="ulFilmDetailsDirector">
+              {/* <ul className="ulFilmDetailsDirector">
                 <li>
                   <h3 style={{ margin: 0 }}>Director:</h3>
                 </li>
@@ -107,14 +107,14 @@ export default function FilmDetails({ films, user }) {
                     {filmDetails.fields.director}
                   </NavLink>
                 </div>
-              </ul>
+              </ul> */}
               <ul className="ulFilmDetailsLength">
                 <li>
                   <h3 style={{ margin: 0 }}>Länge:</h3>
                 </li>
                 <div>
                   <p className="ulFilmDetailsParagraphNoHover">
-                    {filmDetails.fields.lengthInMin} min
+                    {filmDetails.length} min
                   </p>
                 </div>
               </ul>
@@ -124,19 +124,19 @@ export default function FilmDetails({ films, user }) {
                 </li>
                 <div>
                   <p className="ulFilmDetailsParagraphNoHover">
-                    {filmDetails.fields.voting}
+                    {filmDetails.voting}
                   </p>
                 </div>
               </ul>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <AddComment
               entryId={filmDetails.sys.id}
               user={user}
               comments={filmDetails.fields.comments}
             />
-          </div>
+          </div> */}
         </div>
       )}
     </div>
